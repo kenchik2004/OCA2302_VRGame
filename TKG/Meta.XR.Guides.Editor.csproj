@@ -64,8 +64,8 @@
     <Compile Include="Assets\MetaCoreSDK\Editor\Guide\Scripts\Core\GuideItems\GroupedGuideItem.cs" />
     <Compile Include="Assets\MetaCoreSDK\Editor\Guide\Scripts\Core\GuideItems\BulletedLabel.cs" />
     <Compile Include="Assets\MetaCoreSDK\Editor\Guide\AssemblyInfo.cs" />
-    <Compile Include="Assets\MetaCoreSDK\Editor\Guide\Scripts\Core\GuideItems\TextField.cs" />
     <Compile Include="Assets\MetaCoreSDK\Editor\Guide\Scripts\Core\GuideStyles.cs" />
+    <Compile Include="Assets\MetaCoreSDK\Editor\Guide\Scripts\Core\GuideItems\TextField.cs" />
     <Compile Include="Assets\MetaCoreSDK\Editor\Guide\Guides\GuidedSetupDynamicOcclusion\OcclusionBlockSetupInfo.cs" />
     <Compile Include="Assets\MetaCoreSDK\Editor\Guide\Scripts\Core\GuideItems\AddSpace.cs" />
     <Compile Include="Assets\MetaCoreSDK\Editor\Guide\Scripts\Core\GuideItems\LinkLabel.cs" />

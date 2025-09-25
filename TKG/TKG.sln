@@ -49,6 +49,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Meta.XR.BuildingBlocks.Dept
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Meta.XR.Editor.Settings", "Meta.XR.Editor.Settings.csproj", "{D1AD2946-A47D-5692-39AE-000A9C00B9DF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{791CEF68-038E-CDC7-2CAB-50B11A286902}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Meta.XR.BuildingBlocks.DepthAPI", "Meta.XR.BuildingBlocks.DepthAPI.csproj", "{CFC7489E-661D-42EE-583E-3B3634E6239E}"
 EndProject
 Global
@@ -153,6 +155,10 @@ Global
 		{D1AD2946-A47D-5692-39AE-000A9C00B9DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D1AD2946-A47D-5692-39AE-000A9C00B9DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D1AD2946-A47D-5692-39AE-000A9C00B9DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{791CEF68-038E-CDC7-2CAB-50B11A286902}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{791CEF68-038E-CDC7-2CAB-50B11A286902}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{791CEF68-038E-CDC7-2CAB-50B11A286902}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{791CEF68-038E-CDC7-2CAB-50B11A286902}.Release|Any CPU.Build.0 = Release|Any CPU
 		{CFC7489E-661D-42EE-583E-3B3634E6239E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{CFC7489E-661D-42EE-583E-3B3634E6239E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CFC7489E-661D-42EE-583E-3B3634E6239E}.Release|Any CPU.ActiveCfg = Release|Any CPU
