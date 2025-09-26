@@ -39,20 +39,31 @@ public class CutAction : MonoBehaviour
             dir = cut_end - cut_start;
             cut_normal = Vector3.Cross(dir.normalized, transform.up);
             MeshFilter meshFilter = other.gameObject.GetComponent<MeshFilter>();
-            if (cut_normal.sqrMagnitude <= 0.1f)
-            {
-                other.transform.SetParent(transform);
-                cutting_object = null;
-                other.gameObject.tag = "Untagged";
-                return;
-            }
+            //if (cut_normal.sqrMagnitude <= 0.1f)
+            //{
+            //    other.transform.SetParent(transform.parent);
+            //    cutting_object = null;
+            //    other.gameObject.tag = "Untagged";
+            //    Rigidbody rb = other.gameObject.GetComponent<Rigidbody>();
+            //    if (rb)
+            //    {
+            //        rb.constraints = RigidbodyConstraints.FreezeAll;
+            //        rb.isKinematic = true;
+
+            //    }
+            //    return;
+            //}
             cut_normal.Normalize();
             Debug.Log(cut_normal);
             var result = MeshCut.CutMesh(other.gameObject, Vector3.Lerp(cut_start, cut_end, 0.5f), cut_normal);
             //result.copy_normalside.tag = "Untagged";
             //result.original_anitiNormalside.tag = "Untagged";
-            result.copy_normalside.GetComponent<Rigidbody>().AddForce(dir, ForceMode.VelocityChange);
-            result.original_anitiNormalside.GetComponent<Rigidbody>().AddForce(dir, ForceMode.VelocityChange);
+            var rb = result.copy_normalside.GetComponent<Rigidbody>();
+            if (rb)
+                rb.AddForce(cut_normal*5, ForceMode.VelocityChange);
+            rb = result.original_anitiNormalside.GetComponent<Rigidbody>();
+            if (rb)
+                rb.AddForce(-cut_normal*5, ForceMode.VelocityChange);
             cutting_object = null;
         }
     }
