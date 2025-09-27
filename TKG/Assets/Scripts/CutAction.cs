@@ -67,7 +67,7 @@ public class CutAction : MonoBehaviour
     {
         if (other.gameObject.tag == "CutObject" && cutting_mesh == null)
         {
-            if (Vector3.Dot(sword_end_delta, transform.up) < 0.2f)
+            if (Vector3.Dot(sword_end_delta, transform.up) > 0.8f)
             {
                 other.transform.SetParent(child_queue);
 
