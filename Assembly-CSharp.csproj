@@ -66,6 +66,7 @@
     <Compile Include="Assets\Spawner.cs" />
     <Compile Include="Assets\Scripts\CuttingPointDetector.cs" />
     <Compile Include="Assets\Scripts\PreCutAction.cs" />
+    <Compile Include="Assets\Scripts\ThrowAction.cs" />
     <Compile Include="Assets\Scripts\VRAction.cs" />
     <Compile Include="Assets\Scripts\UnsafeList.cs" />
     <Compile Include="Assets\Scripts\CutAction.cs" />
