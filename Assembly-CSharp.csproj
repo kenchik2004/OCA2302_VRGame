@@ -10,7 +10,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{791CEF68-038E-CDC7-2CAB-50B11A286902}</ProjectGuid>
+    <ProjectGuid>{BD9FD87C-2C69-E67E-E277-00976FAC2AF9}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -61,7 +61,13 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.0.36f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\VRAction.cs" />
+    <Compile Include="Assets\Scripts\MeshCut.cs" />
+    <Compile Include="Assets\Scripts\CameraMove.cs" />
+    <Compile Include="Assets\Scripts\CuttingPointDetector.cs" />
+    <Compile Include="Assets\Scripts\PreCutAction.cs" />
+    <Compile Include="Assets\Scripts\VRAction.cs" />
+    <Compile Include="Assets\Scripts\UnsafeList.cs" />
+    <Compile Include="Assets\Scripts\CutAction.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -1195,103 +1201,103 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Meta.XR.Editor.Id.csproj">
-      <Project>{F5129017-E33B-D91B-D6E9-E7E8677C3555}</Project>
+      <Project>{B27E5E19-ACBB-D06E-17B4-3E5DC818F20A}</Project>
       <Name>Meta.XR.Editor.Id</Name>
     </ProjectReference>
     <ProjectReference Include="Meta.XR.BuildingBlocks.Editor.csproj">
-      <Project>{57935116-E713-EBF7-6A06-D56E0E6E599E}</Project>
+      <Project>{2D54A9B2-99DD-4885-D86F-B610333A4A25}</Project>
       <Name>Meta.XR.BuildingBlocks.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="Oculus.VR.csproj">
-      <Project>{99B9DCC9-2482-7C76-B979-3695712AB015}</Project>
+      <Project>{FB7D6106-3AD7-715E-54E1-1FB598B6AB30}</Project>
       <Name>Oculus.VR</Name>
     </ProjectReference>
     <ProjectReference Include="Meta.XR.MultiplayerBlocks.Shared.csproj">
-      <Project>{6BC77B7D-C51A-84D5-C6FA-8371FED97DFC}</Project>
+      <Project>{ED876EF5-1849-7DE1-33DD-A929F82B5FF7}</Project>
       <Name>Meta.XR.MultiplayerBlocks.Shared</Name>
     </ProjectReference>
     <ProjectReference Include="Meta.XR.Editor.UserInterface.csproj">
-      <Project>{3684CE58-2C3A-D88D-1C60-54B394A1F2EC}</Project>
+      <Project>{B09795E9-A162-6609-9794-D6093345FB73}</Project>
       <Name>Meta.XR.Editor.UserInterface</Name>
     </ProjectReference>
     <ProjectReference Include="Meta.XR.ImmersiveDebugger.csproj">
-      <Project>{B5904A06-52C7-0420-FF65-6CF424FA8906}</Project>
+      <Project>{29871494-43E0-6A35-5BFB-7A8B219428FA}</Project>
       <Name>Meta.XR.ImmersiveDebugger</Name>
     </ProjectReference>
     <ProjectReference Include="Meta.XR.Editor.StatusMenu.csproj">
-      <Project>{06E6A005-265B-C1F7-56D9-846CAADCBDF6}</Project>
+      <Project>{C3582181-03E2-1682-8934-F758EFDCE202}</Project>
       <Name>Meta.XR.Editor.StatusMenu</Name>
     </ProjectReference>
     <ProjectReference Include="Meta.XR.MultiplayerBlocks.Shared.Editor.csproj">
-      <Project>{97887EC6-3DF5-ACA1-1AC4-65C79701EB64}</Project>
+      <Project>{B85888E5-4B4D-52D0-2B0E-256B2DAE314B}</Project>
       <Name>Meta.XR.MultiplayerBlocks.Shared.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="Meta.XR.EnvironmentDepth.Editor.csproj">
-      <Project>{D14EE036-86BD-F07E-3A9E-C62628F9F8E9}</Project>
+      <Project>{3BBA4957-A28A-4DB0-E127-75185A7B7FB8}</Project>
       <Name>Meta.XR.EnvironmentDepth.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="Meta.XR.Editor.PlayCompanion.csproj">
-      <Project>{697CEAF2-8FA6-3CBE-C68B-E8EAAE6F1A40}</Project>
+      <Project>{13A8BFE3-30DC-BE5D-D19C-BCC31D7CA490}</Project>
       <Name>Meta.XR.Editor.PlayCompanion</Name>
     </ProjectReference>
     <ProjectReference Include="Meta.XR.Editor.Tags.csproj">
-      <Project>{6CC4E0E9-0D80-F11D-1898-B047A274B739}</Project>
+      <Project>{AD44AEA8-D9A3-60A1-F475-04E6F39877FE}</Project>
       <Name>Meta.XR.Editor.Tags</Name>
     </ProjectReference>
     <ProjectReference Include="Meta.XR.ImmersiveDebugger.Editor.csproj">
-      <Project>{99AF538B-2ACC-67B5-8685-B8435BD3CAF4}</Project>
+      <Project>{639585B3-5647-D867-74E5-C9786C3FBCE9}</Project>
       <Name>Meta.XR.ImmersiveDebugger.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="Meta.XR.BuildingBlocks.DepthAPI.csproj">
-      <Project>{CFC7489E-661D-42EE-583E-3B3634E6239E}</Project>
+      <Project>{1B506933-8F2D-2926-AC50-0492CA99AAF9}</Project>
       <Name>Meta.XR.BuildingBlocks.DepthAPI</Name>
     </ProjectReference>
     <ProjectReference Include="Meta.XR.BuildingBlocks.DepthAPI.Editor.csproj">
-      <Project>{5333D5A0-EE88-57DA-2805-35555854A856}</Project>
+      <Project>{3B7A41FC-36A1-667B-8F1F-ED4B4568B0D0}</Project>
       <Name>Meta.XR.BuildingBlocks.DepthAPI.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="Meta.XR.Guides.Editor.csproj">
-      <Project>{2D4AF65D-48A4-575F-53FD-0ED8DBFC0B9E}</Project>
+      <Project>{17445E21-2A77-2289-72CB-DDB31712EF31}</Project>
       <Name>Meta.XR.Guides.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="Meta.XR.Editor.Callbacks.csproj">
-      <Project>{03C70E3E-4E7C-CE6A-F478-A476708858B5}</Project>
+      <Project>{C8870D89-159F-0281-5969-58B38048CCEA}</Project>
       <Name>Meta.XR.Editor.Callbacks</Name>
     </ProjectReference>
     <ProjectReference Include="Meta.XR.EnvironmentDepth.csproj">
-      <Project>{DBBD8DDA-CD98-4E10-1113-17EFED912F4E}</Project>
+      <Project>{E4F6D677-A429-0C3C-C4FB-BD57C6382635}</Project>
       <Name>Meta.XR.EnvironmentDepth</Name>
     </ProjectReference>
     <ProjectReference Include="Meta.XR.Editor.Settings.csproj">
-      <Project>{D1AD2946-A47D-5692-39AE-000A9C00B9DF}</Project>
+      <Project>{7E98EE00-E226-4D33-C212-FDA4DA8E8F13}</Project>
       <Name>Meta.XR.Editor.Settings</Name>
     </ProjectReference>
     <ProjectReference Include="Meta.XR.Editor.Reflection.csproj">
-      <Project>{929040A2-FB30-6D73-973E-59DE3D4E50F0}</Project>
+      <Project>{6D3B9E97-0743-D395-B5B0-CBFFB505E38B}</Project>
       <Name>Meta.XR.Editor.Reflection</Name>
     </ProjectReference>
     <ProjectReference Include="Oculus.VR.Editor.csproj">
-      <Project>{AAF91994-6B04-9F23-58CD-B826634B12EC}</Project>
+      <Project>{47AAB67A-0C31-2FF8-555C-2D4B5C703352}</Project>
       <Name>Oculus.VR.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="Oculus.VR.Scripts.Editor.csproj">
-      <Project>{B701B22B-E351-0115-A29A-3F8D4E29FB2A}</Project>
+      <Project>{07444F0F-50ED-8B9B-D858-103DBA812634}</Project>
       <Name>Oculus.VR.Scripts.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="Meta.XR.ImmersiveDebugger.Interface.csproj">
-      <Project>{517860BA-4F53-3D88-59E2-291D7ABB82A1}</Project>
+      <Project>{3B9D9061-9818-4E5C-ADE1-005DD8F4CABB}</Project>
       <Name>Meta.XR.ImmersiveDebugger.Interface</Name>
     </ProjectReference>
     <ProjectReference Include="Meta.XR.BuildingBlocks.csproj">
-      <Project>{9972414D-A17F-883F-3047-65B5B7A0938E}</Project>
+      <Project>{B24858E6-A1CD-7E4D-C241-69A9B373ABC0}</Project>
       <Name>Meta.XR.BuildingBlocks</Name>
     </ProjectReference>
     <ProjectReference Include="Meta.XR.MultiplayerBlocks.NGO.Editor.csproj">
-      <Project>{3F16F823-4A60-4084-A70F-74270B59BE41}</Project>
+      <Project>{32C1C255-1D8F-9EB0-E850-CEB16D36166C}</Project>
       <Name>Meta.XR.MultiplayerBlocks.NGO.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="Meta.XR.MultiplayerBlocks.Fusion.Editor.csproj">
-      <Project>{DB17B2AA-1BAD-546C-F29F-F08B3F3E49F4}</Project>
+      <Project>{2F50F2A0-55AF-A70A-834B-9D4D7237D047}</Project>
       <Name>Meta.XR.MultiplayerBlocks.Fusion.Editor</Name>
     </ProjectReference>
   </ItemGroup>
