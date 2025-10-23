@@ -71,7 +71,6 @@
     <Compile Include="Assets\Scripts\UnsafeList.cs" />
     <Compile Include="Assets\Scripts\ThrowMove.cs" />
     <Compile Include="Assets\Scripts\CutAction.cs" />
-    <Compile Include="Assets\TestSpawner.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
