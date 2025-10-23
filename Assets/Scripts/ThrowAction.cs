@@ -14,7 +14,7 @@ public class ThrowAction : MonoBehaviour
     [Range(0, 50)]
     float radius = 0.0f;
     [Header("ターゲット座標")]
-    [SerializeField, DisableIf(nameof(is_aim_player))] 
+    [SerializeField, DisableIf(nameof(is_aim_player))]
     Vector3 target_pos;
     [Header("狙う最終座標")]
     [ReadOnly] public Vector3 final_target_pos;
@@ -37,7 +37,7 @@ public class ThrowAction : MonoBehaviour
 
     }
 
-    void SetPosition(Vector3 position,bool aim_player = false)
+    void SetPosition(Vector3 position, bool aim_player = false)
     {
         target_pos = position;
         is_aim_player = aim_player;
@@ -57,7 +57,7 @@ public class ThrowAction : MonoBehaviour
     {
         if (is_aim_player)
         {
-            if(!target)
+            if (!target)
             {
                 Debug.LogWarning("ターゲットがいない");
             }
@@ -68,7 +68,7 @@ public class ThrowAction : MonoBehaviour
         target_pos.x += r * Mathf.Cos(range * Mathf.Deg2Rad);
         target_pos.z += r * Mathf.Sin(range * Mathf.Deg2Rad);
         GameObject throw_object = Instantiate(throw_prefab, transform.position, Quaternion.identity);
-        throw_object.AddComponent<ThrowMove>().SendMessage("SetTargetPos", target_pos);
+        throw_object.GetComponent<ThrowMove>().SendMessage("SetTargetPos", target_pos);
         Destroy(throw_object, 5.0f);
         final_target_pos = target_pos;
         final_radius = r;

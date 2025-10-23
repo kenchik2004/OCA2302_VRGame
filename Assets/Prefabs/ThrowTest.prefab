@@ -151,6 +151,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  time: 3
-  speed: 5
+  time: 1.8
+  speed: 1.6
   use_custom_speed: 0
