@@ -63,7 +63,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\MeshCut.cs" />
     <Compile Include="Assets\Scripts\CameraMove.cs" />
-    <Compile Include="Assets\ThrowManager.cs" />
+    <Compile Include="Assets\Scripts\ThrowManager.cs" />
     <Compile Include="Assets\Spawner.cs" />
     <Compile Include="Assets\Scripts\ChargeSlashAction.cs" />
     <Compile Include="Assets\Scripts\CuttingPointDetector.cs" />
