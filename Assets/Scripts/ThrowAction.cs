@@ -1,6 +1,8 @@
 using UnityEngine;
 using NaughtyAttributes;
 using Unity.VisualScripting;
+using UnityEngine.UI;
+
 public class ThrowAction : MonoBehaviour
 {
     [Header("ターゲット")]
@@ -24,6 +26,10 @@ public class ThrowAction : MonoBehaviour
     [Header("最終半径")]
     [ReadOnly] public float final_radius = 0.0f;
 
+    // debug
+    [SerializeField] Text text;
+    [SerializeField] float speed;
+
 
     void Start()
     {
@@ -36,7 +42,18 @@ public class ThrowAction : MonoBehaviour
         {
             Debug.DrawLine(transform.position, final_target_pos, Color.red);
         }
-
+        if (Application.platform == RuntimePlatform.Android)
+        {
+            if (OVRInput.Get(OVRInput.RawButton.B))
+            {
+                speed += 0.1f;
+            }
+            if (OVRInput.Get(OVRInput.RawButton.A))
+            {
+                speed -= 0.1f;
+            }
+        }
+        text.text = "Speed " + speed.ToString();
     }
 
     public void SetPosition(Vector3 position, bool aim_player = false)
@@ -57,6 +74,12 @@ public class ThrowAction : MonoBehaviour
         Debug.Log("throw_prefab" + throw_prefab);
     }
 
+    public float GetSpeed()
+    {
+        return speed;
+    }
+ 
+
     public void Throw()
     {
         if (is_aim_player)
@@ -73,6 +96,7 @@ public class ThrowAction : MonoBehaviour
         target_pos.z += r * Mathf.Sin(range * Mathf.Deg2Rad);
         GameObject throw_object = Instantiate(throw_prefab, transform.position, Quaternion.identity);
         throw_object.GetComponent<ThrowMove>().SetTargetPos(target_pos);
+        throw_object.GetComponent<ThrowMove>().SetSpeed(GetSpeed());
         Destroy(throw_object, 5.0f);
         final_target_pos = target_pos;
         final_radius = r;
