@@ -9,7 +9,7 @@ public class ThrowMove : MonoBehaviour
     [Header("ñ⁄ïWÇ…Ç©Ç©ÇÈéûä‘")]
     [SerializeField]
     [Range(0.1f, 50)]
-    float time = 2.0f;
+    float time = 5.0f;
     [Header("è„Ç…ìäÇ∞ÇÈë¨ìx")]
     [SerializeField, EnableIf(nameof(use_custom_speed))]
     [Range(0.1f, 50)]
@@ -68,11 +68,11 @@ public class ThrowMove : MonoBehaviour
         transform.position = new Vector3(xz.x, final_y, xz.z);
     }
 
-    public void SetTargetPos(Vector3 pos)
+    void SetTargetPos(Vector3 pos)
     {
         target_pos = pos;
     }
-    public void SetTarget(GameObject gameObject)
+    void SetTarget(GameObject gameObject)
     {
         target = gameObject;
         target.transform.position = target_pos;
