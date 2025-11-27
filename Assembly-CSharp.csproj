@@ -76,6 +76,9 @@
     <Compile Include="Assets\Scripts\CutAction.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Materials\Materials\dbg_UV.shader" />
+  </ItemGroup>
+  <ItemGroup>
     <Reference Include="UnityEngine">
       <HintPath>C:\Program Files\Unity\Hub\Editor\6000.0.60f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
       <Private>False</Private>

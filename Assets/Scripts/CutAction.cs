@@ -15,6 +15,7 @@ public class CutAction : MonoBehaviour
     [SerializeField] bool for_debugger = false;
     Vector3 sword_end_delta = new Vector3(0, 0, 0);
     Vector3 sword_end_prev = new Vector3(0, 0, 0);
+    [SerializeField] Material cut_mat;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -76,20 +77,28 @@ public class CutAction : MonoBehaviour
             }
             Debug.DrawLine(transform.position - dir * 0.5f, transform.position + dir * 0.5f, Color.black);
             cut_normal.Normalize();
-            var result = MeshCut.CutMesh(other.gameObject, Vector3.Lerp(cut_start, cut_end, 0.5f), cut_normal);
+            var result = MeshCut.CutMesh(other.gameObject, Vector3.Lerp(cut_start, cut_end, 0.5f), cut_normal, true, cut_mat);
             //カット結果が小さすぎてnullが返る場合は、処理スキップ
             if (result.copy_normalside && result.original_anitiNormalside)
             {
                 var rb = result.copy_normalside.GetComponent<Rigidbody>();
                 if (rb)
+                {
                     rb.AddForce(cut_normal * 5, ForceMode.VelocityChange);
+                    rb.isKinematic=true;
+                }
                 rb = result.original_anitiNormalside.GetComponent<Rigidbody>();
                 if (rb)
+                {
                     rb.AddForce(-cut_normal * 5, ForceMode.VelocityChange);
-            }
 
-            Destroy(result.original_anitiNormalside, 2.0f);
-            Destroy(result.copy_normalside, 2.0f);
+                }
+
+                result.original_anitiNormalside.tag = "Untagged";
+                result.copy_normalside.tag = "Untagged";
+                Destroy(result.original_anitiNormalside, 2.0f);
+                //Destroy(result.copy_normalside, 2.0f);
+            }
             cutting_mesh = null;
             cutting_mesh_vertices = null;
         }
@@ -108,18 +117,27 @@ public class CutAction : MonoBehaviour
             }
             Debug.DrawLine(transform.position - dir * 0.5f, transform.position + dir * 0.5f, Color.black);
             cut_normal.Normalize();
-            var result = MeshCut.CutMesh(other.gameObject, Vector3.Lerp(cut_start, cut_end, 0.5f), cut_normal);
+            var result = MeshCut.CutMesh(other.gameObject, Vector3.Lerp(cut_start, cut_end, 0.5f), cut_normal, true, cut_mat);
             //カット結果が小さすぎてnullが返る場合は、処理スキップ
             if (result.copy_normalside && result.original_anitiNormalside)
             {
                 var rb = result.copy_normalside.GetComponent<Rigidbody>();
                 if (rb)
+                {
                     rb.AddForce(cut_normal * 5, ForceMode.VelocityChange);
+                    rb.isKinematic=true;
+                }
                 rb = result.original_anitiNormalside.GetComponent<Rigidbody>();
                 if (rb)
+                {
                     rb.AddForce(-cut_normal * 5, ForceMode.VelocityChange);
+
+                }
+
+                result.original_anitiNormalside.tag = "Untagged";
+                result.copy_normalside.tag = "Untagged";
                 Destroy(result.original_anitiNormalside, 2.0f);
-                Destroy(result.copy_normalside, 2.0f);
+                //Destroy(result.copy_normalside, 2.0f);
             }
         }
     }
