@@ -1,5 +1,12 @@
 fileFormatVersion: 2
 guid: d9333310d761bfd468705a916c0925b0
+AssetOrigin:
+  serializedVersion: 1
+  productId: 315110
+  packageName: Wooden Barrel
+  packageVersion: 1.1.0
+  assetPath: Assets/Hash Game studios/Wooden Barrel/Meshes/Wooden Barrel/Wooden Barrel_Collider.fbx
+  uploadId: 746072
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -30,7 +37,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     extraUserProperties: []
     clipAnimations: []
-    isReadable: 0
+    isReadable: 1
   meshes:
     lODScreenPercentages: []
     globalScale: 1
@@ -105,10 +112,3 @@ ModelImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 315110
-  packageName: Wooden Barrel
-  packageVersion: 1.1.0
-  assetPath: Assets/Hash Game studios/Wooden Barrel/Meshes/Wooden Barrel/Wooden Barrel_Collider.fbx
-  uploadId: 746072

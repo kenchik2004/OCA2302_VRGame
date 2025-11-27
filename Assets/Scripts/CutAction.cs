@@ -97,7 +97,7 @@ public class CutAction : MonoBehaviour
                 result.original_anitiNormalside.tag = "Untagged";
                 result.copy_normalside.tag = "Untagged";
                 Destroy(result.original_anitiNormalside, 2.0f);
-                //Destroy(result.copy_normalside, 2.0f);
+                Destroy(result.copy_normalside, 2.0f);
             }
             cutting_mesh = null;
             cutting_mesh_vertices = null;
@@ -137,7 +137,7 @@ public class CutAction : MonoBehaviour
                 result.original_anitiNormalside.tag = "Untagged";
                 result.copy_normalside.tag = "Untagged";
                 Destroy(result.original_anitiNormalside, 2.0f);
-                //Destroy(result.copy_normalside, 2.0f);
+                Destroy(result.copy_normalside, 2.0f);
             }
         }
     }
