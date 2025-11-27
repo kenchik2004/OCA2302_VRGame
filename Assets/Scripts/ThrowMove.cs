@@ -68,20 +68,17 @@ public class ThrowMove : MonoBehaviour
         transform.position = new Vector3(xz.x, final_y, xz.z);
     }
 
-    void SetTargetPos(Vector3 pos)
+    public void SetTargetPos(Vector3 pos)
     {
         target_pos = pos;
     }
-    void SetTarget(GameObject gameObject)
+    public void SetTarget(GameObject gameObject)
     {
         target = gameObject;
         target.transform.position = target_pos;
     }
-<<<<<<< Updated upstream
-=======
     public void SetSpeed(float s)
     {
         time = s;
     }
->>>>>>> Stashed changes
 }
