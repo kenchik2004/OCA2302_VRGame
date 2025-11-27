@@ -54,6 +54,7 @@ public class ThrowAction : MonoBehaviour
             }
         }
         text.text = "Speed " + speed.ToString();
+        transform.LookAt(target.transform.position, Vector3.up);
     }
 
     public void SetPosition(Vector3 position, bool aim_player = false)
@@ -78,7 +79,7 @@ public class ThrowAction : MonoBehaviour
     {
         return speed;
     }
- 
+
 
     public void Throw()
     {
