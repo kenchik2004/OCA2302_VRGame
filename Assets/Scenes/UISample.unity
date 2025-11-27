@@ -256,6 +256,7 @@ MonoBehaviour:
   line_end: {fileID: 1396294867}
   delta_force: 2
   for_debugger: 0
+  cut_mat: {fileID: 0}
 --- !u!96 &124613042
 TrailRenderer:
   serializedVersion: 3
@@ -552,18 +553,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705507993}
   serializedVersion: 2
-<<<<<<<< HEAD:Assets/Scenes/UISample.unity
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 7.82, z: 0}
-========
-  m_LocalRotation: {x: 0.65156895, y: 0, z: 0, w: 0.75858945}
-  m_LocalPosition: {x: 0, y: 25.37, z: 0}
->>>>>>>> AlphaBuild:Assets/Scenes/Main.unity
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-<<<<<<<< HEAD:Assets/Scenes/UISample.unity
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &913466558
 GameObject:
@@ -673,9 +668,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-========
-  m_LocalEulerAnglesHint: {x: 81.32, y: 0, z: 0}
->>>>>>>> AlphaBuild:Assets/Scenes/Main.unity
 --- !u!1 &925007560
 GameObject:
   m_ObjectHideFlags: 0
@@ -737,7 +729,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb7ace383dbe76445b2ea5c6b39933fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 1621377137}
+  target: {fileID: 0}
   throw_prefab: {fileID: 0}
   is_aim_player: 1
   radius: 0
@@ -760,7 +752,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1732664504}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &997872538
 GameObject:
@@ -1030,9 +1022,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 459718, guid: 126d619cf4daa52469682f85c1378b4a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 997872541}
-    - targetCorrespondingSourceObject: {fileID: 459718, guid: 126d619cf4daa52469682f85c1378b4a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1621377138}
     - targetCorrespondingSourceObject: {fileID: 482130, guid: 126d619cf4daa52469682f85c1378b4a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1012040350}
@@ -1081,63 +1070,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 124613037}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<<< HEAD:Assets/Scenes/UISample.unity
-========
---- !u!1 &1218482231
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1218482232}
-  - component: {fileID: 1218482233}
-  m_Layer: 0
-  m_Name: ThrowSpawner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1218482232
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1218482231}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 23.692902, y: -2.8408144, z: 6.7191944}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1732664504}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1218482233
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1218482231}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb7ace383dbe76445b2ea5c6b39933fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 1621377137}
-  throw_prefab: {fileID: 0}
-  is_aim_player: 1
-  radius: 2
-  target_pos: {x: 0, y: 0, z: 0}
-  draw_debug_line: 0
-  final_target_pos: {x: 0, y: 0, z: 0}
-  final_radius: 0
-  text: {fileID: 1075738658}
-  speed: 1
->>>>>>>> AlphaBuild:Assets/Scenes/Main.unity
 --- !u!1 &1241308496
 GameObject:
   m_ObjectHideFlags: 0
@@ -1317,11 +1249,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 925007561}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<<< HEAD:Assets/Scenes/UISample.unity
 --- !u!1 &1691628640
-========
---- !u!1 &1612876795
->>>>>>>> AlphaBuild:Assets/Scenes/Main.unity
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1329,99 +1257,21 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-<<<<<<<< HEAD:Assets/Scenes/UISample.unity
-  - component: {fileID: 1691628643}
-  - component: {fileID: 1691628642}
   - component: {fileID: 1691628641}
-========
-  - component: {fileID: 1612876798}
-  - component: {fileID: 1612876797}
-  - component: {fileID: 1612876796}
->>>>>>>> AlphaBuild:Assets/Scenes/Main.unity
   m_Layer: 0
-  m_Name: EventSystem
+  m_Name: 
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
-<<<<<<<< HEAD:Assets/Scenes/UISample.unity
---- !u!114 &1691628641
-========
---- !u!114 &1612876796
->>>>>>>> AlphaBuild:Assets/Scenes/Main.unity
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-<<<<<<<< HEAD:Assets/Scenes/UISample.unity
-  m_GameObject: {fileID: 1691628640}
-========
-  m_GameObject: {fileID: 1612876795}
->>>>>>>> AlphaBuild:Assets/Scenes/Main.unity
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SendPointerHoverToParent: 1
-  m_MoveRepeatDelay: 0.5
-  m_MoveRepeatRate: 0.1
-  m_XRTrackingOrigin: {fileID: 0}
-  m_ActionsAsset: {fileID: -944628639613478452, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_PointAction: {fileID: -1654692200621890270, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_MoveAction: {fileID: -8784545083839296357, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_SubmitAction: {fileID: 392368643174621059, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_CancelAction: {fileID: 7727032971491509709, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_LeftClickAction: {fileID: 3001919216989983466, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_MiddleClickAction: {fileID: -2185481485913320682, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_RightClickAction: {fileID: -4090225696740746782, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_ScrollWheelAction: {fileID: 6240969308177333660, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_TrackedDevicePositionAction: {fileID: 6564999863303420839, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_TrackedDeviceOrientationAction: {fileID: 7970375526676320489, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_DeselectOnBackgroundClick: 1
-  m_PointerBehavior: 0
-  m_CursorLockBehavior: 0
-  m_ScrollDeltaPerTick: 6
-<<<<<<<< HEAD:Assets/Scenes/UISample.unity
---- !u!114 &1691628642
-========
---- !u!114 &1612876797
->>>>>>>> AlphaBuild:Assets/Scenes/Main.unity
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-<<<<<<<< HEAD:Assets/Scenes/UISample.unity
-  m_GameObject: {fileID: 1691628640}
-========
-  m_GameObject: {fileID: 1612876795}
->>>>>>>> AlphaBuild:Assets/Scenes/Main.unity
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
-  m_sendNavigationEvents: 1
-  m_DragThreshold: 10
-<<<<<<<< HEAD:Assets/Scenes/UISample.unity
---- !u!4 &1691628643
-========
---- !u!4 &1612876798
->>>>>>>> AlphaBuild:Assets/Scenes/Main.unity
+  m_IsActive: 0
+--- !u!4 &1691628641
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<<< HEAD:Assets/Scenes/UISample.unity
   m_GameObject: {fileID: 1691628640}
-========
-  m_GameObject: {fileID: 1612876795}
->>>>>>>> AlphaBuild:Assets/Scenes/Main.unity
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -1430,151 +1280,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<<< HEAD:Assets/Scenes/UISample.unity
-========
---- !u!1 &1621377137
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1621377138}
-  m_Layer: 0
-  m_Name: player_front
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1621377138
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1621377137}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 529625669}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1732664502
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1732664504}
-  - component: {fileID: 1732664503}
-  m_Layer: 0
-  m_Name: ThrowManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1732664503
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1732664502}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 181188aebabdfa7439188cdfd515e787, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawners:
-  - {fileID: 1218482231}
-  - {fileID: 926441155}
-  throw_objects:
-  - {fileID: 5475646278200112257, guid: 5013cf86634157d42ba2a3c7229fca18, type: 3}
-  - {fileID: 8303666161401684949, guid: c7ba89fb0b91d2c44838228200de9519, type: 3}
-  throw_time: 3
-  chose_spawner: 0
---- !u!4 &1732664504
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1732664502}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -19.49956, y: 4.3108144, z: -22.069195}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1218482232}
-  - {fileID: 926441157}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1787530912
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 6917327823151988487, guid: b1bf01949526c6a499dd8f513a82832b, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6917327823151988487, guid: b1bf01949526c6a499dd8f513a82832b, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6917327823151988487, guid: b1bf01949526c6a499dd8f513a82832b, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6917327823151988487, guid: b1bf01949526c6a499dd8f513a82832b, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6917327823151988487, guid: b1bf01949526c6a499dd8f513a82832b, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6917327823151988487, guid: b1bf01949526c6a499dd8f513a82832b, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6917327823151988487, guid: b1bf01949526c6a499dd8f513a82832b, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6917327823151988487, guid: b1bf01949526c6a499dd8f513a82832b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6917327823151988487, guid: b1bf01949526c6a499dd8f513a82832b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6917327823151988487, guid: b1bf01949526c6a499dd8f513a82832b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7505116384906954061, guid: b1bf01949526c6a499dd8f513a82832b, type: 3}
-      propertyPath: m_Name
-      value: Stage
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: b1bf01949526c6a499dd8f513a82832b, type: 3}
->>>>>>>> AlphaBuild:Assets/Scenes/Main.unity
 --- !u!1 &1968630876
 GameObject:
   m_ObjectHideFlags: 0
@@ -1694,7 +1399,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1069043157}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<<< HEAD:Assets/Scenes/UISample.unity
 --- !u!1001 &504099867735423876
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2186,23 +1890,15 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a857185cc959c2046a25018af6cbe213, type: 3}
-========
->>>>>>>> AlphaBuild:Assets/Scenes/Main.unity
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 705507995}
-<<<<<<<< HEAD:Assets/Scenes/UISample.unity
-  - {fileID: 913466562}
-  - {fileID: 1087908817}
-  - {fileID: 504099867735423876}
-  - {fileID: 1691628643}
+  - {fileID: 1691628641}
   - {fileID: 5492305772806160903}
-  - {fileID: 1376063143905072872}
-========
   - {fileID: 1087908817}
-  - {fileID: 1732664504}
-  - {fileID: 1612876798}
-  - {fileID: 1787530912}
->>>>>>>> AlphaBuild:Assets/Scenes/Main.unity
+  - {fileID: 1376063143905072872}
+  - {fileID: 504099867735423876}
+  - {fileID: 705507995}
+  - {fileID: 913466562}
+  - {fileID: 926441157}

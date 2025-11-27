@@ -69,10 +69,12 @@ public class ThrowMove : MonoBehaviour
     }
 
     void SetTargetPos(Vector3 pos)
+    public void SetTargetPos(Vector3 pos)
     {
         target_pos = pos;
     }
     void SetTarget(GameObject gameObject)
+    public void SetTarget(GameObject gameObject)
     {
         target = gameObject;
         target.transform.position = target_pos;
