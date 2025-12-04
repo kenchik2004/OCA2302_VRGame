@@ -29,6 +29,7 @@ public class ThrowMove : MonoBehaviour
         if (rigid)
         {
             rigid.useGravity = false;
+            rigid.AddTorque(new Vector3(Random.value * 5.0f, Random.value * 5.0f, Random.value * 5.0f), ForceMode.VelocityChange);
         }
         start_pos = transform.position;
         if (target)
