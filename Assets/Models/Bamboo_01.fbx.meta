@@ -1,24 +1,9 @@
 fileFormatVersion: 2
-guid: f1ee12e88ac367f478034ad31fab1f35
+guid: 90b7caa4ba65dea4d951b9962163c325
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Green_2.004
-    second: {fileID: 2100000, guid: c84ea9514b98b5c4a858b5b5dcdf664a, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Green_3.005
-    second: {fileID: 2100000, guid: c84ea9514b98b5c4a858b5b5dcdf664a, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Green_4.004
-    second: {fileID: 2100000, guid: c84ea9514b98b5c4a858b5b5dcdf664a, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -50,7 +35,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 1
+    addColliders: 0
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
     importPhysicalCameras: 1

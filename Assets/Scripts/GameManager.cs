@@ -9,12 +9,27 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject TutorialUI;
     [SerializeField] GameObject GameTutorialUI;
     [SerializeField] GameObject PlayUI;
-    [SerializeField] GameObject[] game_level_ui = new GameObject[3];
-    [SerializeField] GameObject[] level_object_prefab = new GameObject[3];
-    [SerializeField] GameObject[] level_spawn_pos = new GameObject[3];
-    GameObject[] level_object = new GameObject[3];
+    [SerializeField] GameObject[] play_level_ui = new GameObject[3];
+
+    [System.Serializable]
+    struct Data
+    {
+        [SerializeField] public GameObject prefab;
+        [SerializeField] public GameObject spawn_pos;
+        [ReadOnly] public GameObject obj;
+    }
+
+    [SerializeField] Data title_object;
+    [SerializeField] Data[] level_object = new Data[3];
+
+    [SerializeField] AudioSource audio_player;
+    [SerializeField] AudioClip clear_audio;
+    GameObject on_cut_object;
+
+
     int chose_level;
-    bool is_chose_level = false;
+    bool is_next_level = false;
+    bool is_play_se = false;
     float next_scene_timer = 0.0f;
     [SerializeField] float next_scene_time = 3.0f;
     public enum Level
@@ -45,35 +60,48 @@ public class GameManager : MonoBehaviour
     }
 
 
+    public void OnCutObject(GameObject cut_object)
+    {
+        on_cut_object = cut_object;
+    }
+
     void Update()
     {
         switch (now_game_type)
         {
             case GameType.TITLE:
-
-                break;
-            case GameType.CHOSE_LEVEL:             
-                for (int i = 0; i < (int)Level.MAX; i++)
+                if (on_cut_object == title_object.obj && !is_next_level)
                 {
-                    if (!level_object[i])
-                    {
-                        chose_level = i;
-                        is_chose_level = true;
-                    }
+                    audio_player.PlayOneShot(clear_audio);
+                    on_cut_object = null;
+                    is_next_level = true;
                 }
-                if (is_chose_level)
+                if (is_next_level)
+                {
+                    StartMoveScene();
+                }
+                break;
+            case GameType.CHOSE_LEVEL:
+                if (is_next_level)
                 {
                     for (int i = 0; i < (int)Level.MAX; i++)
                     {
-                        if (level_object[i])
+                        if (level_object[i].obj)
                         {
-                            level_object[i].tag = "Untagged";
+                            level_object[i].obj.tag = "Untagged";
                         }
                     }
-                    next_scene_timer -= Time.deltaTime;
-                    if(next_scene_timer<= 0 )
+                    StartMoveScene();
+                    break;
+                }
+                for (int i = 0; i < (int)Level.MAX; i++)
+                {
+                    if (on_cut_object == level_object[i].obj)
                     {
-                        MoveNextScene();
+                        chose_level = i;
+                        is_next_level = true;
+                        audio_player.PlayOneShot(clear_audio);
+                        on_cut_object = null;
                     }
                 }
                 break;
@@ -84,7 +112,7 @@ public class GameManager : MonoBehaviour
 
                 break;
             case GameType.END:
-
+                StartMoveScene();
                 break;
             default:
                 Debug.LogWarning("予想外のgame_typeにアクセス");
@@ -99,19 +127,28 @@ public class GameManager : MonoBehaviour
 
     void Init(GameType type)
     {
+        is_next_level = false;
         switch (type)
         {
             case GameType.TITLE:
-                TitleUI.SetActive(true);
-                TutorialUI.SetActive(true);
+                {
+                    TitleUI.SetActive(true);
+                    TutorialUI.SetActive(true);
+                    Vector3 pos = title_object.spawn_pos.transform.position;
+                    GameObject prefab = title_object.prefab;
+                    title_object.obj = Instantiate(prefab, pos, Quaternion.identity);
+                }
                 break;
 
             case GameType.CHOSE_LEVEL:
-                is_chose_level = false;
-                LevelUI.SetActive(true);
-                for (int i = 0; i < (int)Level.MAX; i++)
                 {
-                    level_object[i] = Instantiate(level_object_prefab[i], level_spawn_pos[i].transform.position,Quaternion.identity);
+                    LevelUI.SetActive(true);
+                    for (int i = 0; i < (int)Level.MAX; i++)
+                    {
+                        Vector3 pos = level_object[i].spawn_pos.transform.position;
+                        GameObject prefab = level_object[i].prefab;
+                        level_object[i].obj = Instantiate(prefab, pos, Quaternion.identity);
+                    }
                 }
                 break;
 
@@ -123,11 +160,11 @@ public class GameManager : MonoBehaviour
                 PlayUI.SetActive(true);
                 SetLevel((Level)chose_level);
                 break;
-
             case GameType.END:
                 break;
         }
         next_scene_timer = next_scene_time;
+        is_play_se = false;
     }
 
     void Exit(GameType type)
@@ -142,10 +179,10 @@ public class GameManager : MonoBehaviour
                 LevelUI.SetActive(false);
                 for (int i = 0; i < (int)Level.MAX; i++)
                 {
-                    if(level_object[i])
-                    { 
-                        Destroy(level_object[i]);
-                        level_object[i] = null;
+                    if (level_object[i].obj)
+                    {
+                        Destroy(level_object[i].obj);
+                        level_object[i].obj = null;
                     }
                 }
                 break;
@@ -188,12 +225,21 @@ public class GameManager : MonoBehaviour
         {
             if (i == (int)type)
             {
-                game_level_ui[i].SetActive(true);
+                play_level_ui[i].SetActive(true);
             }
             else
             {
-                game_level_ui[i].SetActive(false);
+                play_level_ui[i].SetActive(false);
             }
+        }
+    }
+
+    public void StartMoveScene()
+    {
+        next_scene_timer -= Time.deltaTime;
+        if (next_scene_timer <= 0)
+        {
+            MoveNextScene();
         }
     }
 
