@@ -131,6 +131,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 1826656937634601623, guid: 0f909680a51648c4482d18c54666a32f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1957555134197440220, guid: 0f909680a51648c4482d18c54666a32f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -305,6 +309,7 @@ GameObject:
   - component: {fileID: 124613040}
   - component: {fileID: 124613039}
   - component: {fileID: 124613038}
+  - component: {fileID: 124613043}
   - component: {fileID: 124613041}
   - component: {fileID: 124613042}
   m_Layer: 0
@@ -425,7 +430,6 @@ MonoBehaviour:
   line_end: {fileID: 1396294867}
   delta_force: 2
   for_debugger: 1
-  cut_mat: {fileID: 2100000, guid: 8aa6eecc68659bc498d36ebbb5088bb2, type: 2}
 --- !u!96 &124613042
 TrailRenderer:
   serializedVersion: 3
@@ -542,6 +546,22 @@ TrailRenderer:
   m_Autodestruct: 0
   m_Emitting: 1
   m_ApplyActiveColorSpace: 1
+--- !u!114 &124613043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 124613036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07c39c4bedc7b2249ace6395680a2dee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materials:
+  - {fileID: 2100000, guid: c082877391d4ff949909e621246067da, type: 2}
+  pair_materials:
+  - {fileID: 2100000, guid: 8aa6eecc68659bc498d36ebbb5088bb2, type: 2}
 --- !u!1 &307278271
 GameObject:
   m_ObjectHideFlags: 0
@@ -833,7 +853,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5287099382133766105, guid: df83b84992aa57348b80e76d8e7cba91, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -899,7 +919,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2795829143851940976, guid: 6e1dcf44b48353945b2e5962a19a5bd1, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4726714160521437410, guid: 6e1dcf44b48353945b2e5962a19a5bd1, type: 3}
       propertyPath: m_IsActive
@@ -2026,6 +2046,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TitleUI
       objectReference: {fileID: 0}
+    - target: {fileID: 8014527911777607487, guid: 2bb70c64adb42cb45b0a486d451eaca9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9114985586061979697, guid: 2bb70c64adb42cb45b0a486d451eaca9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.23
@@ -2067,7 +2091,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4941969579997022278, guid: 61371220e67fff247a7ca4d91dd9d123, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7204793498401452602, guid: 61371220e67fff247a7ca4d91dd9d123, type: 3}
       propertyPath: m_Pivot.x
@@ -2245,6 +2269,10 @@ PrefabInstance:
     - target: {fileID: 8562480451412835358, guid: 25b5cd2a1ddb40f438d39fd574be8f7c, type: 3}
       propertyPath: m_Name
       value: 'TutorialUI '
+      objectReference: {fileID: 0}
+    - target: {fileID: 8562480451412835358, guid: 25b5cd2a1ddb40f438d39fd574be8f7c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
