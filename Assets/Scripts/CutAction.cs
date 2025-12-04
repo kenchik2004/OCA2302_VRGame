@@ -15,7 +15,8 @@ public class CutAction : MonoBehaviour
     [SerializeField] bool for_debugger = false;
     Vector3 sword_end_delta = new Vector3(0, 0, 0);
     Vector3 sword_end_prev = new Vector3(0, 0, 0);
-    [SerializeField] Material cut_mat;
+
+    CutMaterialManager cut_mat_manager;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -28,6 +29,7 @@ public class CutAction : MonoBehaviour
         dir = new Vector3(-1, 1, 0);
         dir.Normalize();
         sword_end_prev = line_end.position;
+        cut_mat_manager = GetComponent<CutMaterialManager>();
     }
 
     private void FixedUpdate()
@@ -71,12 +73,17 @@ public class CutAction : MonoBehaviour
             Debug.Log(cut_normal.magnitude);
             if (cut_normal.magnitude <= 0.1f)
             {
-                dir = line_end.position - line_start.position;
+                float null_rot;
+                Random.rotation.ToAngleAxis(out null_rot, out dir);
                 cut_normal = Vector3.Cross(dir.normalized, transform.up);
                 //return;
             }
             Debug.DrawLine(transform.position - dir * 0.5f, transform.position + dir * 0.5f, Color.black);
             cut_normal.Normalize();
+            MeshRenderer renderer = other.gameObject.GetComponent<MeshRenderer>();
+            Material cut_mat = null;
+            if (renderer)
+                cut_mat = cut_mat_manager.FindPairMaterial(renderer.sharedMaterial);
             var result = MeshCut.CutMesh(other.gameObject, Vector3.Lerp(cut_start, cut_end, 0.5f), cut_normal, true, cut_mat);
             //カット結果が小さすぎてnullが返る場合は、処理スキップ
             if (result.copy_normalside && result.original_anitiNormalside)
@@ -85,7 +92,7 @@ public class CutAction : MonoBehaviour
                 if (rb)
                 {
                     rb.AddForce(cut_normal * 5, ForceMode.VelocityChange);
-                    rb.isKinematic=true;
+                    rb.isKinematic = true;
                 }
                 rb = result.original_anitiNormalside.GetComponent<Rigidbody>();
                 if (rb)
@@ -111,12 +118,17 @@ public class CutAction : MonoBehaviour
             Debug.Log(cut_normal.magnitude);
             if (cut_normal.magnitude <= 0.1f)
             {
-                dir = line_end.position - line_start.position;
+                float null_rot;
+                Random.rotation.ToAngleAxis(out null_rot, out dir);
                 cut_normal = Vector3.Cross(dir.normalized, transform.up);
                 //return;
             }
             Debug.DrawLine(transform.position - dir * 0.5f, transform.position + dir * 0.5f, Color.black);
             cut_normal.Normalize();
+            MeshRenderer renderer = other.gameObject.GetComponent<MeshRenderer>();
+            Material cut_mat = null;
+            if (renderer)
+                cut_mat = cut_mat_manager.FindPairMaterial(renderer.sharedMaterial);
             var result = MeshCut.CutMesh(other.gameObject, Vector3.Lerp(cut_start, cut_end, 0.5f), cut_normal, true, cut_mat);
             //カット結果が小さすぎてnullが返る場合は、処理スキップ
             if (result.copy_normalside && result.original_anitiNormalside)
@@ -125,7 +137,7 @@ public class CutAction : MonoBehaviour
                 if (rb)
                 {
                     rb.AddForce(cut_normal * 5, ForceMode.VelocityChange);
-                    rb.isKinematic=true;
+                    rb.isKinematic = true;
                 }
                 rb = result.original_anitiNormalside.GetComponent<Rigidbody>();
                 if (rb)
@@ -140,5 +152,7 @@ public class CutAction : MonoBehaviour
                 //Destroy(result.copy_normalside, 2.0f);
             }
         }
+        Debug.Log(other.gameObject);
+        BroadcastMessage("OnCutObject", other.gameObject, SendMessageOptions.DontRequireReceiver);
     }
 }

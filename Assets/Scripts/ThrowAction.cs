@@ -25,6 +25,10 @@ public class ThrowAction : MonoBehaviour
     [ReadOnly] public Vector3 final_target_pos;
     [Header("ç≈èIîºåa")]
     [ReadOnly] public float final_radius = 0.0f;
+    [SerializeField] GameObject model_obj;
+
+    ThrowModelAction model_action;
+
 
     // debug
     [SerializeField] Text text;
@@ -33,7 +37,10 @@ public class ThrowAction : MonoBehaviour
 
     void Start()
     {
-
+        if (model_obj)
+        {
+            model_action = model_obj.AddComponent<ThrowModelAction>();
+        }
     }
 
     void Update()
@@ -101,5 +108,7 @@ public class ThrowAction : MonoBehaviour
         Destroy(throw_object, 5.0f);
         final_target_pos = target_pos;
         final_radius = r;
+        if (model_action)
+            model_action.Throw();
     }
 }

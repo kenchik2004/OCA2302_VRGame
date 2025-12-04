@@ -63,6 +63,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\MeshCut.cs" />
     <Compile Include="Assets\Scripts\Spawner.cs" />
+    <Compile Include="Assets\Scripts\ThrowModelAction.cs" />
     <Compile Include="Assets\Scripts\CameraMove.cs" />
     <Compile Include="Assets\Scripts\ScoreCheck.cs" />
     <Compile Include="Assets\Scripts\ThrowManager.cs" />
@@ -76,6 +77,7 @@
     <Compile Include="Assets\Scripts\UnsafeList.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\SkillLeftUI.cs" />
+    <Compile Include="Assets\Scripts\CutMaterialManager.cs" />
     <Compile Include="Assets\Scripts\ThrowMove.cs" />
     <Compile Include="Assets\Scripts\CutAction.cs" />
   </ItemGroup>

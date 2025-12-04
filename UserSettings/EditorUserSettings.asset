@@ -5,6 +5,9 @@ EditorUserSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 4
   m_ConfigSettings:
+    GraphicsSettingsInspector_UserSettings:
+      value: 18134705175a055722080a3115371d4a0d55006876786860616b0471b8b1646db3a967b0be636a6d6855be64536b1c73b01a001bf30703051428e8021dcb090314eb19c81f8a455ee90c15c2d950f8ed97cb
+      flags: 0
     RecentlyUsedSceneGuid-0:
       value: 0057515707035b0e095e5c2715745c44124f4b7c782e7231292d4960e1b4666f
       flags: 0
