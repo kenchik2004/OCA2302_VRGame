@@ -63,6 +63,7 @@ public class GameManager : MonoBehaviour
     public void OnCutObject(GameObject cut_object)
     {
         on_cut_object = cut_object;
+        on_cut_object.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
     }
 
     void Update()
@@ -70,7 +71,7 @@ public class GameManager : MonoBehaviour
         switch (now_game_type)
         {
             case GameType.TITLE:
-                if (on_cut_object == title_object.obj && !is_next_level)
+                if (on_cut_object != null && !is_next_level)
                 {
                     audio_player.PlayOneShot(clear_audio);
                     on_cut_object = null;
@@ -174,6 +175,8 @@ public class GameManager : MonoBehaviour
             case GameType.TITLE:
                 TitleUI.SetActive(false);
                 TutorialUI.SetActive(false);
+                Destroy(title_object.obj);
+                title_object.obj = null;
                 break;
             case GameType.CHOSE_LEVEL:
                 LevelUI.SetActive(false);
