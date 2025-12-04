@@ -833,7 +833,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5287099382133766105, guid: df83b84992aa57348b80e76d8e7cba91, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -899,7 +899,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2795829143851940976, guid: 6e1dcf44b48353945b2e5962a19a5bd1, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4726714160521437410, guid: 6e1dcf44b48353945b2e5962a19a5bd1, type: 3}
       propertyPath: m_IsActive
@@ -2026,6 +2026,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TitleUI
       objectReference: {fileID: 0}
+    - target: {fileID: 8014527911777607487, guid: 2bb70c64adb42cb45b0a486d451eaca9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9114985586061979697, guid: 2bb70c64adb42cb45b0a486d451eaca9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.23
@@ -2067,7 +2071,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4941969579997022278, guid: 61371220e67fff247a7ca4d91dd9d123, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7204793498401452602, guid: 61371220e67fff247a7ca4d91dd9d123, type: 3}
       propertyPath: m_Pivot.x
@@ -2245,6 +2249,10 @@ PrefabInstance:
     - target: {fileID: 8562480451412835358, guid: 25b5cd2a1ddb40f438d39fd574be8f7c, type: 3}
       propertyPath: m_Name
       value: 'TutorialUI '
+      objectReference: {fileID: 0}
+    - target: {fileID: 8562480451412835358, guid: 25b5cd2a1ddb40f438d39fd574be8f7c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
