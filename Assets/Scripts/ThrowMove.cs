@@ -77,6 +77,7 @@ public class ThrowMove : MonoBehaviour
         target = gameObject;
         target.transform.position = target_pos;
     }
+
     public void SetSpeed(float s)
     {
         time = s;
