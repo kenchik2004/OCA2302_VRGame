@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2823770188097699369}
   m_Layer: 6
   m_Name: Bamboo_02
-  m_TagString: Untagged
+  m_TagString: CutObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -154,7 +154,7 @@ GameObject:
   - component: {fileID: 61108954691472581}
   m_Layer: 6
   m_Name: Bamboo_03 (2)
-  m_TagString: Untagged
+  m_TagString: CutObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -432,7 +432,7 @@ GameObject:
   - component: {fileID: 1726239402136981686}
   m_Layer: 6
   m_Name: Bamboo_03
-  m_TagString: Untagged
+  m_TagString: CutObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -565,9 +565,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2084943988799263932}
+  - component: {fileID: 4406344684693390058}
   m_Layer: 6
   m_Name: Bamboo_1
-  m_TagString: Untagged
+  m_TagString: CutObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -598,6 +599,18 @@ Transform:
   - {fileID: 8238480044162495375}
   m_Father: {fileID: 2195189051621218993}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4406344684693390058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1950345313587219299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc5bb165ada985a47b643287ba15dc4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2237155534291050926
 GameObject:
   m_ObjectHideFlags: 0
@@ -613,7 +626,7 @@ GameObject:
   - component: {fileID: 3583972237185169022}
   m_Layer: 6
   m_Name: Bamboo_02
-  m_TagString: Untagged
+  m_TagString: CutObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -752,7 +765,7 @@ GameObject:
   - component: {fileID: 7161857557196765694}
   m_Layer: 6
   m_Name: Bamboo_02 (1)
-  m_TagString: Untagged
+  m_TagString: CutObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1169,7 +1182,7 @@ GameObject:
   - component: {fileID: 2531462142946662534}
   m_Layer: 6
   m_Name: Bamboo_03 (2)
-  m_TagString: Untagged
+  m_TagString: CutObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1447,7 +1460,7 @@ GameObject:
   - component: {fileID: 4912732047568393350}
   m_Layer: 6
   m_Name: Bamboo_03 (1)
-  m_TagString: Untagged
+  m_TagString: CutObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1586,7 +1599,7 @@ GameObject:
   - component: {fileID: 5420821849654135046}
   m_Layer: 6
   m_Name: Bamboo_03
-  m_TagString: Untagged
+  m_TagString: CutObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1719,6 +1732,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2195189051621218993}
+  - component: {fileID: -9155928610353032978}
   m_Layer: 6
   m_Name: Title_Bamboo
   m_TagString: Untagged
@@ -1743,6 +1757,18 @@ Transform:
   - {fileID: 3467059930153535439}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-9155928610353032978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5517049674346935678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc5bb165ada985a47b643287ba15dc4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5629201546748648546
 GameObject:
   m_ObjectHideFlags: 0
@@ -1752,9 +1778,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3467059930153535439}
+  - component: {fileID: 3706955733468202127}
   m_Layer: 6
   m_Name: Bamboo_1 (1)
-  m_TagString: Untagged
+  m_TagString: CutObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1785,6 +1812,18 @@ Transform:
   - {fileID: 5628054345734909369}
   m_Father: {fileID: 2195189051621218993}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3706955733468202127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5629201546748648546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc5bb165ada985a47b643287ba15dc4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5653165778532852960
 GameObject:
   m_ObjectHideFlags: 0
@@ -1800,7 +1839,7 @@ GameObject:
   - component: {fileID: 4603389793835842022}
   m_Layer: 6
   m_Name: Bamboo_03 (3)
-  m_TagString: Untagged
+  m_TagString: CutObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1939,7 +1978,7 @@ GameObject:
   - component: {fileID: 6506008024816580381}
   m_Layer: 6
   m_Name: Bamboo_02 (1)
-  m_TagString: Untagged
+  m_TagString: CutObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2773,7 +2812,7 @@ GameObject:
   - component: {fileID: 8589664447255355838}
   m_Layer: 6
   m_Name: Bamboo_03 (1)
-  m_TagString: Untagged
+  m_TagString: CutObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2912,7 +2951,7 @@ GameObject:
   - component: {fileID: 5791712788630121625}
   m_Layer: 6
   m_Name: Bamboo_03 (3)
-  m_TagString: Untagged
+  m_TagString: CutObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

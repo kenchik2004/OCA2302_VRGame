@@ -4,12 +4,13 @@ using NaughtyAttributes;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] GameObject TitleUI;
-    [SerializeField] GameObject LevelUI;
-    [SerializeField] GameObject TutorialUI;
-    [SerializeField] GameObject GameTutorialUI;
-    [SerializeField] GameObject PlayUI;
+    [SerializeField] GameObject title_ui;
+    [SerializeField] GameObject level_ui;
+    [SerializeField] GameObject tutorial_ui;
+    [SerializeField] GameObject game_tutorial_ui;
+    [SerializeField] GameObject play_ui;
     [SerializeField] GameObject[] play_level_ui = new GameObject[3];
+    [SerializeField] GameObject throw_manager;
 
     [System.Serializable]
     struct Data
@@ -32,6 +33,14 @@ public class GameManager : MonoBehaviour
     bool is_play_se = false;
     float next_scene_timer = 0.0f;
     [SerializeField] float next_scene_time = 3.0f;
+    [SerializeField] Text game_score_text;
+    int game_score;
+    [SerializeField] Text game_time_text;
+    [SerializeField] ChargeSlashAction charge_slash;
+    [SerializeField] GameObject[] slash_use_ui = new GameObject[3];
+    float game_time;
+    [Header("ÉQÅ[ÉÄóVÇ◊ÇÈéûä‘")]
+    [SerializeField] float play_time = 100.0f;
     public enum Level
     {
         EASY,
@@ -63,6 +72,8 @@ public class GameManager : MonoBehaviour
     public void OnCutObject(GameObject cut_object)
     {
         on_cut_object = cut_object;
+        Debug.Log("on_cut_object" + cut_object);
+        Debug.Log("title_object" + title_object.obj);
     }
 
     void Update()
@@ -70,8 +81,9 @@ public class GameManager : MonoBehaviour
         switch (now_game_type)
         {
             case GameType.TITLE:
-                if (on_cut_object == title_object.obj && !is_next_level)
+                if (!title_object.obj && !is_next_level)
                 {
+
                     audio_player.PlayOneShot(clear_audio);
                     on_cut_object = null;
                     is_next_level = true;
@@ -106,10 +118,39 @@ public class GameManager : MonoBehaviour
                 }
                 break;
             case GameType.GAME_TUTORIAL:
-
+                if (Input.GetKeyDown(KeyCode.A) || OVRInput.Get(OVRInput.RawButton.A))
+                {
+                    MoveNextScene();
+                }
                 break;
             case GameType.GAME:
+                game_score_text.text = game_score.ToString();
+                game_time -= Time.deltaTime;
+                game_time = Mathf.Max(game_time, 0.0f);
+                game_time_text.text = game_time.ToString("F2");
+                for (int i = 0; i < 3; i++)
+                {
+                    if (i < charge_slash.GetUseTime())
+                    {
+                        slash_use_ui[i].SetActive(true);
+                    }
+                    else
+                    {
+                        slash_use_ui[i].SetActive(false);
+                    }
 
+                }
+
+
+                if (game_time <= 0.0f)
+                {
+                    var manager = throw_manager.GetComponent<ThrowManager>();
+                    if (manager)
+                    {
+                        manager.StopSpawn(true);
+                    }
+                    StartMoveScene();
+                }
                 break;
             case GameType.END:
                 StartMoveScene();
@@ -132,8 +173,8 @@ public class GameManager : MonoBehaviour
         {
             case GameType.TITLE:
                 {
-                    TitleUI.SetActive(true);
-                    TutorialUI.SetActive(true);
+                    title_ui.SetActive(true);
+                    tutorial_ui.SetActive(true);
                     Vector3 pos = title_object.spawn_pos.transform.position;
                     GameObject prefab = title_object.prefab;
                     title_object.obj = Instantiate(prefab, pos, Quaternion.identity);
@@ -142,7 +183,7 @@ public class GameManager : MonoBehaviour
 
             case GameType.CHOSE_LEVEL:
                 {
-                    LevelUI.SetActive(true);
+                    level_ui.SetActive(true);
                     for (int i = 0; i < (int)Level.MAX; i++)
                     {
                         Vector3 pos = level_object[i].spawn_pos.transform.position;
@@ -153,12 +194,22 @@ public class GameManager : MonoBehaviour
                 break;
 
             case GameType.GAME_TUTORIAL:
-                GameTutorialUI.SetActive(true);
+                game_tutorial_ui.SetActive(true);
                 break;
 
             case GameType.GAME:
-                PlayUI.SetActive(true);
+                play_ui.SetActive(true);
                 SetLevel((Level)chose_level);
+                var manager = throw_manager.GetComponent<ThrowManager>();
+                if (manager)
+                {
+                    manager.StopSpawn(false);
+                }
+                charge_slash.SetInfinity(false);
+                charge_slash.SetUseTime(3);
+                throw_manager.SetActive(true);
+                game_time = play_time;
+                game_score = 0;
                 break;
             case GameType.END:
                 break;
@@ -172,11 +223,11 @@ public class GameManager : MonoBehaviour
         switch (type)
         {
             case GameType.TITLE:
-                TitleUI.SetActive(false);
-                TutorialUI.SetActive(false);
+                title_ui.SetActive(false);
+                tutorial_ui.SetActive(false);
                 break;
             case GameType.CHOSE_LEVEL:
-                LevelUI.SetActive(false);
+                level_ui.SetActive(false);
                 for (int i = 0; i < (int)Level.MAX; i++)
                 {
                     if (level_object[i].obj)
@@ -187,10 +238,12 @@ public class GameManager : MonoBehaviour
                 }
                 break;
             case GameType.GAME_TUTORIAL:
-                GameTutorialUI.SetActive(false);
+                game_tutorial_ui.SetActive(false);
                 break;
             case GameType.GAME:
-                PlayUI.SetActive(false);
+                play_ui.SetActive(false);
+                throw_manager.SetActive(false);
+                charge_slash.SetInfinity(true);
                 break;
             case GameType.END:
                 break;
@@ -210,8 +263,6 @@ public class GameManager : MonoBehaviour
 
         Init(now_game_type);
     }
-
-
 
     public void SetTargetScore(float score)
     {
@@ -251,5 +302,15 @@ public class GameManager : MonoBehaviour
             next = GameType.TITLE;
         }
         ChangeState(next);
+    }
+
+    public void AddScore(int score)
+    {
+        game_score += score;
+    }
+
+    public int GetScore()
+    {
+        return game_score;
     }
 }

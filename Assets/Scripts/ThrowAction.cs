@@ -51,11 +51,11 @@ public class ThrowAction : MonoBehaviour
         }
         if (Application.platform == RuntimePlatform.Android)
         {
-            if (OVRInput.Get(OVRInput.RawButton.B))
+            if (OVRInput.Get(OVRInput.RawButton.Y))
             {
                 speed += 0.1f;
             }
-            if (OVRInput.Get(OVRInput.RawButton.A))
+            if (OVRInput.Get(OVRInput.RawButton.X))
             {
                 speed -= 0.1f;
             }

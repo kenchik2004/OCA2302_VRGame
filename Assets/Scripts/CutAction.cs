@@ -1,4 +1,6 @@
+using TMPro;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class CutAction : MonoBehaviour
 {
@@ -15,6 +17,10 @@ public class CutAction : MonoBehaviour
     [SerializeField] bool for_debugger = false;
     Vector3 sword_end_delta = new Vector3(0, 0, 0);
     Vector3 sword_end_prev = new Vector3(0, 0, 0);
+    [SerializeField] GameObject game_manager;
+    [SerializeField] GameObject score_effect;
+    [SerializeField] GameObject player;
+
 
     CutMaterialManager cut_mat_manager;
 
@@ -70,7 +76,7 @@ public class CutAction : MonoBehaviour
             //cut_end = other.ClosestPointOnBounds(my_col.ClosestPointOnBounds(other.transform.position));
             dir = cut_end - cut_start;
             cut_normal = Vector3.Cross(dir.normalized, transform.up);
-            Debug.Log(cut_normal.magnitude);
+            //Debug.Log(cut_normal.magnitude);
             if (cut_normal.magnitude <= 0.1f)
             {
                 float null_rot;
@@ -115,7 +121,7 @@ public class CutAction : MonoBehaviour
             cut_end = transform.position;
             dir = cut_end - cut_start;
             cut_normal = Vector3.Cross(dir.normalized, transform.up);
-            Debug.Log(cut_normal.magnitude);
+            // Debug.Log(cut_normal.magnitude);
             if (cut_normal.magnitude <= 0.1f)
             {
                 float null_rot;
@@ -152,7 +158,18 @@ public class CutAction : MonoBehaviour
                 Destroy(result.copy_normalside, 2.0f);
             }
         }
-        Debug.Log(other.gameObject);
-        BroadcastMessage("OnCutObject", other.gameObject, SendMessageOptions.DontRequireReceiver);
+        //Debug.Log(other.gameObject);
+        var score = other.gameObject.GetComponent<MyScore>();
+        if (score)
+        {
+            game_manager.BroadcastMessage("AddScore", score.GetScore(), SendMessageOptions.DontRequireReceiver);
+
+            Vector3 direction = (cut_end-player.transform.position).normalized;
+
+            var effect = Instantiate(score_effect, cut_end, Quaternion.LookRotation(direction));
+            var text = effect.GetComponent<TextMeshPro>();
+            text.text = score.GetScore().ToString();
+        }
+        game_manager.BroadcastMessage("OnCutObject", other.gameObject, SendMessageOptions.DontRequireReceiver);
     }
 }

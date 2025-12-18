@@ -10,6 +10,7 @@ public class ThrowManager : MonoBehaviour
     [SerializeField] float throw_time = 3.0f;
     [ReadOnly] public int chose_spawner;
     float timer;
+    bool is_stop = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -20,6 +21,10 @@ public class ThrowManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (is_stop)
+        {
+            return;
+        }
         timer -= Time.deltaTime;
         if (timer <= 0.0f)
         {
@@ -69,6 +74,15 @@ public class ThrowManager : MonoBehaviour
             throw_action = spawner.AddComponent<ThrowAction>();
             throw_action.SetThrowObject(obj);
             throw_action.Throw();
+        }
+    }
+
+    public void StopSpawn(bool is_stop_spawn)
+    {
+        is_stop = is_stop_spawn;
+        if(!is_stop_spawn)
+        {
+            timer = throw_time;
         }
     }
 

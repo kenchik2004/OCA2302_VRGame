@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2533574813847641394}
   - component: {fileID: 252756796349273234}
   - component: {fileID: 7944154752639352599}
+  - component: {fileID: 2367881551301804874}
   m_Layer: 6
   m_Name: ThrowCoin
   m_TagString: CutObject
@@ -155,3 +156,16 @@ MonoBehaviour:
   time: 1.8
   speed: 1.6
   use_custom_speed: 0
+--- !u!114 &2367881551301804874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6851971930147120039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0445191cac6e0af489104e4cf6de3ae1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: 1000

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4439453330759049756}
   m_Layer: 0
   m_Name: Bamboo_03
-  m_TagString: Untagged
+  m_TagString: CutObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
