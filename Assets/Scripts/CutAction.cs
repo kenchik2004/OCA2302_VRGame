@@ -35,7 +35,11 @@ public class CutAction : MonoBehaviour
         dir = new Vector3(-1, 1, 0);
         dir.Normalize();
         sword_end_prev = line_end.position;
-        cut_mat_manager = GetComponent<CutMaterialManager>();
+        if (!game_manager || !cut_mat_manager)
+        {
+            game_manager = GameObject.FindGameObjectWithTag("GameController");
+            cut_mat_manager = game_manager.GetComponent<CutMaterialManager>();
+        }
     }
 
     private void FixedUpdate()
@@ -164,7 +168,7 @@ public class CutAction : MonoBehaviour
         {
             game_manager.BroadcastMessage("AddScore", score.GetScore(), SendMessageOptions.DontRequireReceiver);
 
-            Vector3 direction = (cut_end-player.transform.position).normalized;
+            Vector3 direction = (cut_end - player.transform.position).normalized;
 
             var effect = Instantiate(score_effect, cut_end, Quaternion.LookRotation(direction));
             var text = effect.GetComponent<TextMeshPro>();
