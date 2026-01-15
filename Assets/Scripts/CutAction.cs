@@ -166,13 +166,19 @@ public class CutAction : MonoBehaviour
         var score = other.gameObject.GetComponent<MyScore>();
         if (score)
         {
-            game_manager.BroadcastMessage("AddScore", score.GetScore(), SendMessageOptions.DontRequireReceiver);
+            int score_int = score.GetScore();
+            game_manager.BroadcastMessage("AddScore", score_int, SendMessageOptions.DontRequireReceiver);
 
             Vector3 direction = (cut_end - player.transform.position).normalized;
 
             var effect = Instantiate(score_effect, cut_end, Quaternion.LookRotation(direction));
             var text = effect.GetComponent<TextMeshPro>();
-            text.text = score.GetScore().ToString();
+            text.text = score_int.ToString();
+            if (score_int > 0)
+                text.color = new Color(0.0f, 1.0f, 0.0f, 1.0f);
+            else if (score_int < 0)
+                text.color = new Color(1.0f, 0.0f, 0.0f, 1.0f);
+
         }
         game_manager.BroadcastMessage("OnCutObject", other.gameObject, SendMessageOptions.DontRequireReceiver);
     }
