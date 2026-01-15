@@ -188,6 +188,18 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2085603615}
     - target: {fileID: 3976269134915587558, guid: 0f909680a51648c4482d18c54666a32f, type: 3}
+      propertyPath: play_ui
+      value: 
+      objectReference: {fileID: 1568285992}
+    - target: {fileID: 3976269134915587558, guid: 0f909680a51648c4482d18c54666a32f, type: 3}
+      propertyPath: level_ui
+      value: 
+      objectReference: {fileID: 975873643}
+    - target: {fileID: 3976269134915587558, guid: 0f909680a51648c4482d18c54666a32f, type: 3}
+      propertyPath: title_ui
+      value: 
+      objectReference: {fileID: 2085603615}
+    - target: {fileID: 3976269134915587558, guid: 0f909680a51648c4482d18c54666a32f, type: 3}
       propertyPath: TutorialUI
       value: 
       objectReference: {fileID: 5407413400553551894}
@@ -195,6 +207,10 @@ PrefabInstance:
       propertyPath: clear_audio
       value: 
       objectReference: {fileID: 8300000, guid: 21836fa23c074c64d918b8abda6eaa15, type: 3}
+    - target: {fileID: 3976269134915587558, guid: 0f909680a51648c4482d18c54666a32f, type: 3}
+      propertyPath: tutorial_ui
+      value: 
+      objectReference: {fileID: 5407413400553551894}
     - target: {fileID: 3976269134915587558, guid: 0f909680a51648c4482d18c54666a32f, type: 3}
       propertyPath: audio_player
       value: 
@@ -207,6 +223,10 @@ PrefabInstance:
       propertyPath: audio.Array.size
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3976269134915587558, guid: 0f909680a51648c4482d18c54666a32f, type: 3}
+      propertyPath: game_tutorial_ui
+      value: 
+      objectReference: {fileID: 857153795}
     - target: {fileID: 3976269134915587558, guid: 0f909680a51648c4482d18c54666a32f, type: 3}
       propertyPath: title_obj.prefab
       value: 
@@ -436,6 +456,8 @@ MonoBehaviour:
   delta_force: 2
   for_debugger: 1
   game_manager: {fileID: 49847163}
+  score_effect: {fileID: 0}
+  player: {fileID: 0}
 --- !u!96 &124613042
 TrailRenderer:
   serializedVersion: 3

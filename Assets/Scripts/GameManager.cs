@@ -61,7 +61,7 @@ public class GameManager : MonoBehaviour
 
         MAX,
     }
-    [ReadOnly] GameType now_game_type = GameType.TITLE;
+    [ReadOnly] GameType now_game_type = GameType.GAME;
 
     void Start()
     {
