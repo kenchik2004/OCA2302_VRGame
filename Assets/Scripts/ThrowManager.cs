@@ -18,6 +18,15 @@ public class ThrowManager : MonoBehaviour
         timer = throw_time;
     }
 
+    public void SetThrowInterval(float interval)
+    {
+        if (interval < 0.05)
+        {
+            Debug.LogWarning("Interval lower 0.05!!");
+            return;
+        }
+        throw_time = interval;
+    }
     // Update is called once per frame
     void Update()
     {
@@ -80,7 +89,7 @@ public class ThrowManager : MonoBehaviour
     public void StopSpawn(bool is_stop_spawn)
     {
         is_stop = is_stop_spawn;
-        if(!is_stop_spawn)
+        if (!is_stop_spawn)
         {
             timer = throw_time;
         }

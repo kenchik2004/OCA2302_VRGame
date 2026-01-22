@@ -28,7 +28,10 @@ public class GameManager : MonoBehaviour
     GameObject on_cut_object;
 
 
-    int chose_level;
+    [Header("難易度")]
+    [SerializeField] int chose_level;
+    [Header("難易度別投擲クールタイム")]
+    [SerializeField] float[] cool_times = new float[3];
     bool is_next_level = false;
     bool is_play_se = false;
     float next_scene_timer = 0.0f;
@@ -61,7 +64,7 @@ public class GameManager : MonoBehaviour
 
         MAX,
     }
-    [ReadOnly] GameType now_game_type = GameType.GAME;
+    [ReadOnly] GameType now_game_type = GameType.TITLE;
 
     void Start()
     {
@@ -277,12 +280,15 @@ public class GameManager : MonoBehaviour
             if (i == (int)type)
             {
                 play_level_ui[i].SetActive(true);
+                var throw_manager_comp = throw_manager.GetComponent<ThrowManager>();
+                throw_manager_comp.SetThrowInterval(cool_times[i]);
             }
             else
             {
                 play_level_ui[i].SetActive(false);
             }
         }
+
     }
 
     public void StartMoveScene()

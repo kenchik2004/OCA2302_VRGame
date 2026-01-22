@@ -874,10 +874,16 @@ MonoBehaviour:
   - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 2100000, guid: c082877391d4ff949909e621246067da, type: 2}
   - {fileID: 2100000, guid: 20eb4a5fdc0613f42988157c59dfc50c, type: 2}
+  - {fileID: 2100000, guid: 20eb4a5fdc0613f42988157c59dfc50c, type: 2}
+  - {fileID: 2100000, guid: 128fee5f05ed404418967f6de37603b0, type: 2}
+  - {fileID: 2100000, guid: 15ba631176cc9ad46a441ffeb1b3c92e, type: 2}
   pair_materials:
   - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 2100000, guid: 8aa6eecc68659bc498d36ebbb5088bb2, type: 2}
   - {fileID: 2100000, guid: 4452660c735b1a147b214acef371431a, type: 2}
+  - {fileID: 2100000, guid: 4452660c735b1a147b214acef371431a, type: 2}
+  - {fileID: 2100000, guid: 128fee5f05ed404418967f6de37603b0, type: 2}
+  - {fileID: 2100000, guid: 128fee5f05ed404418967f6de37603b0, type: 2}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1764,7 +1770,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e18ea2ed16a5458306e5cc1aa3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  charge_time: 1
+  charge_time: 0.5
   capcher_time: 0.1
   sword_end: {fileID: 1396294867}
   slash_prefab: {fileID: 8498332317369775918, guid: b8b9e804ad340624aaa6e82021d051f1, type: 3}
@@ -2032,6 +2038,18 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2070439127}
     - target: {fileID: 3976269134915587558, guid: 0f909680a51648c4482d18c54666a32f, type: 3}
+      propertyPath: 'cool_times.Array.data[0]'
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3976269134915587558, guid: 0f909680a51648c4482d18c54666a32f, type: 3}
+      propertyPath: 'cool_times.Array.data[1]'
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3976269134915587558, guid: 0f909680a51648c4482d18c54666a32f, type: 3}
+      propertyPath: 'cool_times.Array.data[2]'
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3976269134915587558, guid: 0f909680a51648c4482d18c54666a32f, type: 3}
       propertyPath: 'slash_use_ui.Array.data[0]'
       value: 
       objectReference: {fileID: 1204876413}
@@ -2225,7 +2243,7 @@ Transform:
   m_GameObject: {fileID: 1305587785}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.164, z: 0.172}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2848,9 +2866,12 @@ MonoBehaviour:
   - {fileID: 2083251203}
   - {fileID: 883560933}
   throw_objects:
+  - {fileID: 5841938962496156644, guid: 1d3ec47dbc59b1f4bb69fd9064a33d6c, type: 3}
+  - {fileID: 5426927349591311797, guid: 528ade25fc7f25848a8a7c7e07400c6a, type: 3}
+  - {fileID: 6851971930147120039, guid: caf25c8a96d07e54d8276c3b5a902ee0, type: 3}
   - {fileID: 5475646278200112257, guid: 5013cf86634157d42ba2a3c7229fca18, type: 3}
   - {fileID: 5475646278200112257, guid: a58aa7bce67f08f4392b256817f9d5e5, type: 3}
-  - {fileID: 6851971930147120039, guid: caf25c8a96d07e54d8276c3b5a902ee0, type: 3}
+  - {fileID: 2135540299916726685, guid: f8ffcde618f1f334eb991d522b8c8db2, type: 3}
   throw_time: 3
   chose_spawner: 0
 --- !u!4 &1732664504
@@ -3480,6 +3501,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 723052167909691054, guid: 2bb70c64adb42cb45b0a486d451eaca9, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5778943288621232768, guid: 2bb70c64adb42cb45b0a486d451eaca9, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
