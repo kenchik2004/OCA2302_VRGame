@@ -1,6 +1,8 @@
 using UnityEngine;
 using NaughtyAttributes;
 using Unity.VisualScripting;
+using UnityEngine.UI;
+
 public class ThrowAction : MonoBehaviour
 {
     [Header("ターゲット")]
@@ -16,44 +18,81 @@ public class ThrowAction : MonoBehaviour
     [Header("ターゲット座標")]
     [SerializeField, DisableIf(nameof(is_aim_player))]
     Vector3 target_pos;
+    AudioSource audio_source;
+
+
+    [Header("デバック表示")]
+    [SerializeField]
+    bool draw_debug_line = false;
     [Header("狙う最終座標")]
     [ReadOnly] public Vector3 final_target_pos;
     [Header("最終半径")]
     [ReadOnly] public float final_radius = 0.0f;
+    [SerializeField] GameObject model_obj;
+
+    ThrowModelAction model_action;
+
+
+    // debug
+    [SerializeField] Text text;
+    [SerializeField] float speed;
 
 
     void Start()
     {
-
+        if (model_obj)
+        {
+            model_action = model_obj.AddComponent<ThrowModelAction>();
+        }
+        audio_source = GetComponent<AudioSource>();
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
+        if (draw_debug_line)
         {
-            Throw();
+            Debug.DrawLine(transform.position, final_target_pos, Color.red);
         }
-        Debug.DrawLine(transform.position, final_target_pos, Color.red);
-
+        if (Application.platform == RuntimePlatform.Android)
+        {
+            if (OVRInput.Get(OVRInput.RawButton.Y))
+            {
+                speed += 0.1f;
+            }
+            if (OVRInput.Get(OVRInput.RawButton.X))
+            {
+                speed -= 0.1f;
+            }
+        }
+        text.text = "Speed " + speed.ToString();
+        transform.LookAt(target.transform.position, Vector3.up);
     }
 
-    void SetPosition(Vector3 position, bool aim_player = false)
+    public void SetPosition(Vector3 position, bool aim_player = false)
     {
         target_pos = position;
         is_aim_player = aim_player;
     }
 
-    void SetRadius(float r)
+    public void SetRadius(float r)
     {
         radius = r;
     }
 
-    void SetThrowObject(GameObject gameObject)
+    public void SetThrowObject(GameObject obj)
     {
-        throw_prefab = gameObject;
+        Debug.Log(obj);
+        throw_prefab = obj;
+        Debug.Log("throw_prefab" + throw_prefab);
     }
 
-    void Throw()
+    public float GetSpeed()
+    {
+        return speed;
+    }
+
+
+    public void Throw()
     {
         if (is_aim_player)
         {
@@ -68,9 +107,19 @@ public class ThrowAction : MonoBehaviour
         target_pos.x += r * Mathf.Cos(range * Mathf.Deg2Rad);
         target_pos.z += r * Mathf.Sin(range * Mathf.Deg2Rad);
         GameObject throw_object = Instantiate(throw_prefab, transform.position, Quaternion.identity);
-        throw_object.GetComponent<ThrowMove>().SendMessage("SetTargetPos", target_pos);
+        throw_object.GetComponent<ThrowMove>().SetTargetPos(target_pos);
+        throw_object.GetComponent<ThrowMove>().SetSpeed(GetSpeed());
+        throw_object.GetComponent<Rigidbody>().AddTorque(new Vector3(Random.value, Random.value, Random.value) * 5, ForceMode.Impulse);
         Destroy(throw_object, 5.0f);
         final_target_pos = target_pos;
         final_radius = r;
+        if (model_action)
+        {
+            model_action.Throw();
+        }
+        if (audio_source)
+        {
+            audio_source.PlayOneShot(audio_source.clip);
+        }
     }
 }

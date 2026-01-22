@@ -6,6 +6,10 @@ public class ChargeSlashAction : MonoBehaviour
     [SerializeField] float capcher_time = 0.1f;
     [SerializeField] Transform sword_end;
     [SerializeField] GameObject slash_prefab;
+    [SerializeField] bool is_infinity = true;
+    [SerializeField] int slash_use_time = 3;
+    AudioSource audio_source;
+
     public float charge_timer = 0.0f;
     public float capcher_timer = 0.0f;
     Vector3 slash_start;
@@ -30,11 +34,17 @@ public class ChargeSlashAction : MonoBehaviour
         charge_timer = charge_time;
         capcher_timer = capcher_time;
         slash_state = SLASH_STATE.NOT_READY;
+        audio_source = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (slash_use_time <= 0 && !is_infinity)
+        {
+            return;
+        }
+
         switch (slash_state)
         {
             case SLASH_STATE.NOT_READY:
@@ -67,13 +77,29 @@ public class ChargeSlashAction : MonoBehaviour
             case SLASH_STATE.CAPCHER_END:
                 slash_end = sword_end.position;
                 slash_state = SLASH_STATE.SLASH;
+                if (!is_infinity)
+                {
+                    slash_use_time--;
+                }
+                if (audio_source)
+                {
+                    audio_source.PlayOneShot(audio_source.clip);
+                }
                 break;
 
             default:
                 Debug.DrawRay(slash_start, slash_end - slash_start, Color.green, 1.0f);
-                Quaternion instance_rot = Quaternion.LookRotation(transform.forward, Vector3.Cross(slash_end - slash_start, transform.forward));
+                Vector3 rightwards = (slash_end - slash_start).normalized;
+                Vector3 upwards = Vector3.up;
+                upwards = Vector3.Cross(rightwards, transform.up);
+                if (Vector3.Dot(rightwards, Vector3.up) > 0.8f)
+                    upwards = Vector3.Cross(rightwards, transform.forward);
+
+                Quaternion instance_rot = Quaternion.LookRotation(transform.up, upwards);
                 Vector3 instance_pos = Vector3.Lerp(slash_start, slash_end, 0.5f);
-                Instantiate(slash_prefab, instance_pos, instance_rot);
+                GameObject instance = Instantiate(slash_prefab, instance_pos, instance_rot);
+
+
                 slash_state = SLASH_STATE.NOT_READY;
                 break;
         }
@@ -98,4 +124,21 @@ public class ChargeSlashAction : MonoBehaviour
             charge_timer = charge_time;
         }
     }
+
+    public void SetInfinity(bool use_infinity)
+    {
+        is_infinity = use_infinity;
+    }
+
+    public void SetUseTime(int use_time)
+    {
+        slash_use_time = use_time;
+    }
+
+    public int GetUseTime()
+    {
+        return slash_use_time;
+    }
+
+
 }
