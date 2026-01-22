@@ -8,6 +8,7 @@ public class ChargeSlashAction : MonoBehaviour
     [SerializeField] GameObject slash_prefab;
     [SerializeField] bool is_infinity = true;
     [SerializeField] int slash_use_time = 3;
+    AudioSource audio_source;
 
     public float charge_timer = 0.0f;
     public float capcher_timer = 0.0f;
@@ -33,6 +34,7 @@ public class ChargeSlashAction : MonoBehaviour
         charge_timer = charge_time;
         capcher_timer = capcher_time;
         slash_state = SLASH_STATE.NOT_READY;
+        audio_source = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -78,6 +80,10 @@ public class ChargeSlashAction : MonoBehaviour
                 if (!is_infinity)
                 {
                     slash_use_time--;
+                }
+                if (audio_source)
+                {
+                    audio_source.PlayOneShot(audio_source.clip);
                 }
                 break;
 

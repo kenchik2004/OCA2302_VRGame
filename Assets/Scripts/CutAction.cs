@@ -20,6 +20,7 @@ public class CutAction : MonoBehaviour
     [SerializeField] GameObject game_manager;
     [SerializeField] GameObject score_effect;
     [SerializeField] GameObject player;
+    AudioSource audio_source;
 
 
     CutMaterialManager cut_mat_manager;
@@ -40,6 +41,7 @@ public class CutAction : MonoBehaviour
             game_manager = GameObject.FindGameObjectWithTag("GameController");
             cut_mat_manager = game_manager.GetComponent<CutMaterialManager>();
         }
+        audio_source = GetComponent<AudioSource>();
     }
 
     private void FixedUpdate()
@@ -68,8 +70,13 @@ public class CutAction : MonoBehaviour
             cutting_mesh_vertices = mesh.vertices;
             cut_start = CuttingPointDetector.DetectClosestPointOnLine(cutting_mesh_vertices, line_start.position, line_end.position);
             //cut_start = other.ClosestPointOnBounds(my_col.ClosestPointOnBounds(other.transform.position));
+            if (audio_source)
+            {
+                audio_source.PlayOneShot(audio_source.clip);
+            }
 
         }
+
     }
     private void OnTriggerExit(Collider other)
     {
@@ -94,6 +101,7 @@ public class CutAction : MonoBehaviour
             Material cut_mat = null;
             if (renderer)
                 cut_mat = cut_mat_manager.FindPairMaterial(renderer.sharedMaterial);
+            other.gameObject.SendMessage("OnCut", SendMessageOptions.DontRequireReceiver);
             var result = MeshCut.CutMesh(other.gameObject, Vector3.Lerp(cut_start, cut_end, 0.5f), cut_normal, true, cut_mat);
             //カット結果が小さすぎてnullが返る場合は、処理スキップ
             if (result.copy_normalside && result.original_anitiNormalside)
@@ -139,6 +147,7 @@ public class CutAction : MonoBehaviour
             Material cut_mat = null;
             if (renderer)
                 cut_mat = cut_mat_manager.FindPairMaterial(renderer.sharedMaterial);
+            other.gameObject.SendMessage("OnCut", SendMessageOptions.DontRequireReceiver);
             var result = MeshCut.CutMesh(other.gameObject, Vector3.Lerp(cut_start, cut_end, 0.5f), cut_normal, true, cut_mat);
             //カット結果が小さすぎてnullが返る場合は、処理スキップ
             if (result.copy_normalside && result.original_anitiNormalside)
@@ -164,7 +173,7 @@ public class CutAction : MonoBehaviour
         }
         //Debug.Log(other.gameObject);
         var score = other.gameObject.GetComponent<MyScore>();
-        if (score)
+        if (score && other.gameObject.tag == "CutObject")
         {
             int score_int = score.GetScore();
             game_manager.BroadcastMessage("AddScore", score_int, SendMessageOptions.DontRequireReceiver);

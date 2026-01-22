@@ -18,6 +18,9 @@ public class ThrowAction : MonoBehaviour
     [Header("ターゲット座標")]
     [SerializeField, DisableIf(nameof(is_aim_player))]
     Vector3 target_pos;
+    AudioSource audio_source;
+
+
     [Header("デバック表示")]
     [SerializeField]
     bool draw_debug_line = false;
@@ -41,6 +44,7 @@ public class ThrowAction : MonoBehaviour
         {
             model_action = model_obj.AddComponent<ThrowModelAction>();
         }
+        audio_source = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -109,6 +113,12 @@ public class ThrowAction : MonoBehaviour
         final_target_pos = target_pos;
         final_radius = r;
         if (model_action)
+        {
             model_action.Throw();
+        }
+        if (audio_source)
+        {
+            audio_source.PlayOneShot(audio_source.clip);
+        }
     }
 }
