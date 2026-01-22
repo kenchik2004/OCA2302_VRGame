@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5649942077502018965}
   - component: {fileID: 2116992506676448187}
   - component: {fileID: 5162770591329359452}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ThrowTestCube
   m_TagString: CutObject
   m_Icon: {fileID: 0}

@@ -17,7 +17,6 @@ public class ScoreEffectUI : MonoBehaviour
         rect_transform = GetComponent<RectTransform>();
         text_color = text.color;
         color = text_color;
-        Debug.Log(color.a);
         color.a = 0.0f;
     }
 

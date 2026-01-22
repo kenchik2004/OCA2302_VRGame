@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 329810836515616754}
   - component: {fileID: 2725278057147008058}
   - component: {fileID: 4010819214815957555}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ThrowWheel
   m_TagString: CutObject
   m_Icon: {fileID: 0}
