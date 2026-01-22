@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8352116762436783544}
   - component: {fileID: 1253268201128658328}
   - component: {fileID: 5089271396195758271}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BombTop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,7 +102,7 @@ GameObject:
   - component: {fileID: 8519577992292331949}
   - component: {fileID: 8787260753241389019}
   - component: {fileID: 2536981926217276817}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ThrowBomb
   m_TagString: CutObject
   m_Icon: {fileID: 0}
@@ -257,7 +257,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0445191cac6e0af489104e4cf6de3ae1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: -500
+  score: -1000
 --- !u!114 &2536981926217276817
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -283,7 +283,7 @@ GameObject:
   - component: {fileID: 7635310103435304860}
   - component: {fileID: 7034083323373721621}
   - component: {fileID: 7750504726954125998}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BombWick
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -437,6 +437,10 @@ PrefabInstance:
     - target: {fileID: 8178762030175000242, guid: ff34eaddfaaf5c145a12911fea8f30ba, type: 3}
       propertyPath: m_Name
       value: SmokeEffect
+      objectReference: {fileID: 0}
+    - target: {fileID: 8178762030175000242, guid: ff34eaddfaaf5c145a12911fea8f30ba, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

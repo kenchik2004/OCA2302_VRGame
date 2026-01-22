@@ -109,6 +109,7 @@ public class ThrowAction : MonoBehaviour
         GameObject throw_object = Instantiate(throw_prefab, transform.position, Quaternion.identity);
         throw_object.GetComponent<ThrowMove>().SetTargetPos(target_pos);
         throw_object.GetComponent<ThrowMove>().SetSpeed(GetSpeed());
+        throw_object.GetComponent<Rigidbody>().AddTorque(new Vector3(Random.value, Random.value, Random.value) * 5, ForceMode.Impulse);
         Destroy(throw_object, 5.0f);
         final_target_pos = target_pos;
         final_radius = r;
