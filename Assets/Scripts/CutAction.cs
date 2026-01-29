@@ -13,7 +13,6 @@ public class CutAction : MonoBehaviour
 
     [SerializeField] Transform line_start;
     [SerializeField] Transform line_end;
-    [SerializeField] float delta_force = 10;
     [SerializeField] bool for_debugger = false;
     Vector3 sword_end_delta = new Vector3(0, 0, 0);
     Vector3 sword_end_prev = new Vector3(0, 0, 0);
@@ -80,6 +79,27 @@ public class CutAction : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
+
+        //Debug.Log(other.gameObject);
+        var score = other.gameObject.GetComponent<MyScore>();
+        if (score && other.gameObject.tag == "CutObject")
+        {
+            int score_int = score.GetScore();
+            Debug.Log(score.gameObject);
+            Debug.Log(score_int);
+            game_manager.BroadcastMessage("AddScore", score_int, SendMessageOptions.DontRequireReceiver);
+
+            Vector3 direction = (cut_end - player.transform.position).normalized;
+
+            var effect = Instantiate(score_effect, cut_end, Quaternion.LookRotation(direction));
+            var text = effect.GetComponent<TextMeshPro>();
+            text.text = score_int.ToString();
+            if (score_int > 0)
+                text.color = new Color(0.0f, 1.0f, 0.0f, 1.0f);
+            else if (score_int < 0)
+                text.color = new Color(1.0f, 0.0f, 0.0f, 1.0f);
+
+        }
         if (other.gameObject.tag == "CutObject" && cutting_mesh)
         {
 
@@ -171,24 +191,7 @@ public class CutAction : MonoBehaviour
                 Destroy(result.copy_normalside, 2.0f);
             }
         }
-        //Debug.Log(other.gameObject);
-        var score = other.gameObject.GetComponent<MyScore>();
-        if (score && other.gameObject.tag == "CutObject")
-        {
-            int score_int = score.GetScore();
-            game_manager.BroadcastMessage("AddScore", score_int, SendMessageOptions.DontRequireReceiver);
 
-            Vector3 direction = (cut_end - player.transform.position).normalized;
-
-            var effect = Instantiate(score_effect, cut_end, Quaternion.LookRotation(direction));
-            var text = effect.GetComponent<TextMeshPro>();
-            text.text = score_int.ToString();
-            if (score_int > 0)
-                text.color = new Color(0.0f, 1.0f, 0.0f, 1.0f);
-            else if (score_int < 0)
-                text.color = new Color(1.0f, 0.0f, 0.0f, 1.0f);
-
-        }
         game_manager.BroadcastMessage("OnCutObject", other.gameObject, SendMessageOptions.DontRequireReceiver);
     }
 }

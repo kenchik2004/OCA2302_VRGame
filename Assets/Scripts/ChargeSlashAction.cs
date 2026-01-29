@@ -6,8 +6,6 @@ public class ChargeSlashAction : MonoBehaviour
     [SerializeField] float capcher_time = 0.1f;
     [SerializeField] Transform sword_end;
     [SerializeField] GameObject slash_prefab;
-    [SerializeField] bool is_infinity = true;
-    [SerializeField] int slash_use_time = 3;
     AudioSource audio_source;
 
     public float charge_timer = 0.0f;
@@ -40,10 +38,6 @@ public class ChargeSlashAction : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (slash_use_time <= 0 && !is_infinity)
-        {
-            return;
-        }
 
         switch (slash_state)
         {
@@ -77,10 +71,6 @@ public class ChargeSlashAction : MonoBehaviour
             case SLASH_STATE.CAPCHER_END:
                 slash_end = sword_end.position;
                 slash_state = SLASH_STATE.SLASH;
-                if (!is_infinity)
-                {
-                    slash_use_time--;
-                }
                 if (audio_source)
                 {
                     audio_source.PlayOneShot(audio_source.clip);
@@ -125,20 +115,6 @@ public class ChargeSlashAction : MonoBehaviour
         }
     }
 
-    public void SetInfinity(bool use_infinity)
-    {
-        is_infinity = use_infinity;
-    }
-
-    public void SetUseTime(int use_time)
-    {
-        slash_use_time = use_time;
-    }
-
-    public int GetUseTime()
-    {
-        return slash_use_time;
-    }
 
 
 }

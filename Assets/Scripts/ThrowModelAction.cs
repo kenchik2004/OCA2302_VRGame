@@ -22,13 +22,12 @@ public class ThrowModelAction : MonoBehaviour
         if (scaling_timer > scaling_time_border)
         {
             float t = (scaling_timer - scaling_time_border) / (scaling_time_max - scaling_time_border);
-            Debug.Log(t);
+       
             scale_ = Mathf.Lerp(min_scale, max_scale, t);
         }
         else if (scaling_timer > 0.0f)
         {
             float t = scaling_timer / scaling_time_border;
-            Debug.Log(t);
             scale_ = Mathf.Lerp(min_scale, max_scale, t);
         }
         transform.localScale = new Vector3(base_scale.x * scale_, base_scale.y * scale_, base_scale.z * scale_);

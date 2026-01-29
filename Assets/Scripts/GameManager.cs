@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject game_tutorial_ui;
     [SerializeField] GameObject play_ui;
     [SerializeField] GameObject[] play_level_ui = new GameObject[3];
+    [SerializeField] GameObject over_ui;
     [SerializeField] GameObject throw_manager;
 
     [System.Serializable]
@@ -25,6 +26,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] AudioSource audio_player;
     [SerializeField] AudioClip clear_audio;
+    [SerializeField] AudioClip[] score_se = new AudioClip[5];
+    [SerializeField] AudioClip[] scoring_se = new AudioClip[2];
     GameObject on_cut_object;
 
 
@@ -33,17 +36,20 @@ public class GameManager : MonoBehaviour
     [Header("難易度別投擲クールタイム")]
     [SerializeField] float[] cool_times = new float[3];
     bool is_next_level = false;
-    bool is_play_se = false;
     float next_scene_timer = 0.0f;
     [SerializeField] float next_scene_time = 3.0f;
     [SerializeField] Text game_score_text;
     int game_score;
     [SerializeField] Text game_time_text;
     [SerializeField] ChargeSlashAction charge_slash;
-    [SerializeField] GameObject[] slash_use_ui = new GameObject[3];
     float game_time;
     [Header("ゲーム遊べる時間")]
     [SerializeField] float play_time = 100.0f;
+    [SerializeField] Text over_score_text;
+    [SerializeField] Text over_score_level;
+
+    [Header("スコアランク区分(C~SS)")]
+    [SerializeField] int[] rank_borders = new int[5];
     public enum Level
     {
         EASY,
@@ -131,18 +137,6 @@ public class GameManager : MonoBehaviour
                 game_time -= Time.deltaTime;
                 game_time = Mathf.Max(game_time, 0.0f);
                 game_time_text.text = game_time.ToString("F2");
-                for (int i = 0; i < 3; i++)
-                {
-                    if (i < charge_slash.GetUseTime())
-                    {
-                        slash_use_ui[i].SetActive(true);
-                    }
-                    else
-                    {
-                        slash_use_ui[i].SetActive(false);
-                    }
-
-                }
 
 
                 if (game_time <= 0.0f)
@@ -156,7 +150,41 @@ public class GameManager : MonoBehaviour
                 }
                 break;
             case GameType.END:
-                StartMoveScene();
+                if (game_time > 0.0f)
+                {
+                    float game_time_prev = game_time;
+                    game_time -= Time.deltaTime;
+                    if (game_time > 7.0f)
+                    {
+                        over_score_text.text = ((int)(Random.value * 99999)).ToString();
+                    }
+                    else if (game_time_prev > 7.0f)
+                    {
+                        over_score_text.text = game_score.ToString();
+                        audio_player.PlayOneShot(scoring_se[1]);
+                    }
+                    if (game_time < 5.0f && game_time_prev >= 5.0f)
+                    {
+                        string[] ranks = new string[5] { "C", "B", "A", "S", "SS" };
+                        string current_rank = ranks[0];
+                        for (int i = 1; i < 5; i++)
+                        {
+                            if (game_score < rank_borders[i])
+                            {
+                                audio_player.PlayOneShot(score_se[i - 1]);
+                                break;
+                            }
+                            current_rank = ranks[i];
+                        }
+                        if (current_rank == ranks[4])
+                            audio_player.PlayOneShot(score_se[4]);
+
+                        over_score_level.gameObject.SetActive(true);
+                        over_score_level.text = current_rank;
+                    }
+                }
+                else
+                    StartMoveScene();
                 break;
             default:
                 Debug.LogWarning("予想外のgame_typeにアクセス");
@@ -208,17 +236,18 @@ public class GameManager : MonoBehaviour
                 {
                     manager.StopSpawn(false);
                 }
-                charge_slash.SetInfinity(false);
-                charge_slash.SetUseTime(3);
                 throw_manager.SetActive(true);
                 game_time = play_time;
                 game_score = 0;
                 break;
             case GameType.END:
+                game_time = 10.0f;
+                over_ui.SetActive(true);
+                over_score_level.gameObject.SetActive(false);
+                audio_player.PlayOneShot(scoring_se[0]);
                 break;
         }
         next_scene_timer = next_scene_time;
-        is_play_se = false;
     }
 
     void Exit(GameType type)
@@ -246,9 +275,9 @@ public class GameManager : MonoBehaviour
             case GameType.GAME:
                 play_ui.SetActive(false);
                 throw_manager.SetActive(false);
-                charge_slash.SetInfinity(true);
                 break;
             case GameType.END:
+                over_ui.SetActive(false);
                 break;
         }
     }
@@ -313,6 +342,8 @@ public class GameManager : MonoBehaviour
     public void AddScore(int score)
     {
         game_score += score;
+        if (game_score < 0)
+            game_score = 0;
     }
 
     public int GetScore()
