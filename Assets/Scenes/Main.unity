@@ -363,6 +363,7 @@ MonoBehaviour:
   game_manager: {fileID: 686652076}
   score_effect: {fileID: 9054372818988904017, guid: 7802163aa7699a846b5ae158935e4a73, type: 3}
   player: {fileID: 529625668}
+  vibration: 1
 --- !u!96 &124613042
 TrailRenderer:
   serializedVersion: 3
@@ -2211,6 +2212,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: OVRCameraRig
       objectReference: {fileID: 0}
+    - target: {fileID: 159718, guid: 126d619cf4daa52469682f85c1378b4a, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 126d619cf4daa52469682f85c1378b4a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.31
@@ -2983,7 +2988,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3976269134915587558, guid: 0f909680a51648c4482d18c54666a32f, type: 3}
       propertyPath: 'cool_times.Array.data[2]'
-      value: 1
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 3976269134915587558, guid: 0f909680a51648c4482d18c54666a32f, type: 3}
       propertyPath: 'scoring_se.Array.data[0]'
@@ -3007,7 +3012,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3976269134915587558, guid: 0f909680a51648c4482d18c54666a32f, type: 3}
       propertyPath: 'rank_borders.Array.data[4]'
-      value: 30000
+      value: 21000
       objectReference: {fileID: 0}
     - target: {fileID: 3976269134915587558, guid: 0f909680a51648c4482d18c54666a32f, type: 3}
       propertyPath: 'slash_use_ui.Array.data[0]'

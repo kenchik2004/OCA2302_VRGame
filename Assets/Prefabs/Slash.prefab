@@ -289,10 +289,9 @@ MonoBehaviour:
   cutting_mesh_vertices: []
   line_start: {fileID: 3563032839145668366}
   line_end: {fileID: 6921783200323752749}
-  delta_force: 10
   for_debugger: 0
   game_manager: {fileID: 0}
-  score_effect: {fileID: 0}
+  score_effect: {fileID: 9054372818988904017, guid: 7802163aa7699a846b5ae158935e4a73, type: 3}
   player: {fileID: 0}
 --- !u!65 &1360407376876515238
 BoxCollider:

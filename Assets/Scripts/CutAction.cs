@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
@@ -20,6 +21,7 @@ public class CutAction : MonoBehaviour
     [SerializeField] GameObject score_effect;
     [SerializeField] GameObject player;
     AudioSource audio_source;
+    [SerializeField] bool vibration = false;
 
 
     CutMaterialManager cut_mat_manager;
@@ -41,6 +43,15 @@ public class CutAction : MonoBehaviour
             cut_mat_manager = game_manager.GetComponent<CutMaterialManager>();
         }
         audio_source = GetComponent<AudioSource>();
+        if (!player)
+            player = GameObject.FindGameObjectWithTag("Player");
+    }
+    IEnumerator Vibrate()
+    {
+        OVRInput.SetControllerVibration(1.0f, 1.0f, OVRInput.Controller.RTouch);
+        yield return new WaitForSeconds(0.2f);
+        OVRInput.SetControllerVibration(0.0f, 0.0f, OVRInput.Controller.RTouch);
+
     }
 
     private void FixedUpdate()
@@ -98,6 +109,8 @@ public class CutAction : MonoBehaviour
                 text.color = new Color(0.0f, 1.0f, 0.0f, 1.0f);
             else if (score_int < 0)
                 text.color = new Color(1.0f, 0.0f, 0.0f, 1.0f);
+            if (vibration)
+                StartCoroutine("Vibrate");
 
         }
         if (other.gameObject.tag == "CutObject" && cutting_mesh)
